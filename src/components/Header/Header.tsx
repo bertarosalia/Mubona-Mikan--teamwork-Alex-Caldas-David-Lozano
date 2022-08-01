@@ -1,4 +1,4 @@
-import HeaderStyled from "./HeaderStyles";
+import HeaderStyled from "./HeaderStyled";
 
 const Header = (): JSX.Element => {
   return (
