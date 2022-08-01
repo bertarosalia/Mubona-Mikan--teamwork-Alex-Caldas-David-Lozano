@@ -1,0 +1,109 @@
+# Components
+
+- App <!-- Nachus:"Renderiza todo" -->
+  - Recibe
+    - nope
+  - Estado
+    - Nain
+  - Muestra
+    - Header
+    - Router
+    - Footer
+  - Acciónes
+    - Res
+- Button
+  - Recibe
+    - Texto
+    - Acción
+  - Estado
+    - Nada
+  - Muestra
+    - Texto recibido
+  - Accónes
+    - Invocar la acción recibida al ser clicado
+- Anime Card
+  - Recibe props
+    - Boolean de tipo de card a imprimir
+    - Objeto anime
+  - Estado
+    - Nada
+  - Muestra
+    - Imagen del anime
+    - Titulo del Anime
+    - Texto del anime (segun el boleano recibido)
+    - Rating
+    - Boton
+  - Acciónes
+    - Pulsando la card muestra la pagina detalles
+    - Pulsando el boton añade la card al array local
+- Header
+  - Recibe
+    - Na
+  - Estado
+    - Niet
+  - Muestra
+    - H1 con imagen
+    - Icono menu
+  - Acciónes
+    - Nada
+- Footer
+  - Recibe
+    - Nada
+  - Estado
+    - Nada
+  - Muestra
+    - Enlaces RRSS
+    - Enlaces android/ios
+    - Copyright
+  - Acciónes
+    - Hacer click en los iconos de enlace de RRSS
+    - Hacer click en los iconos de android/ios
+- Form <!-- Nachus:"el de busqueda es nice to have" -->
+  - Recibe
+    - La información de un anime de la api local
+  - Estado
+    - Objeto en proceso de creación
+  - Muestra
+    - Los inputs del usuario
+  - Acciónes
+    - Nope
+- Anime Search List
+  - Recibe
+    - Array de X animes del provider
+    - Cantidad de paginas con X animes del provier
+  - Estado
+    - None
+  - Muestra
+    - Lista X cards
+    - Paginación
+  - Acciónes
+    - Nope
+- Anime My List
+  - Recibe
+    - Array de X animes del local
+  - Estado
+    - No pas
+  - Muestra
+    - lista de X cards
+  - Acciónes
+- Modal
+  - Recibe
+    - texto a monstrar
+    - booleano de tipo de mensaje (good,bad)
+  - Estado
+  - Muestra
+    - texto recibido
+    - Color segun boleano
+  - Acciónes
+    - Ninguna
+
+# Data Layer
+
+- Datos:
+  - Array de animes
+- Modificaciónes:
+  - Volcar/cargar todos los animes en array online
+  - Añadir datos al array local
+  - Actualizar datos del array local
+  - Borrar un anime del array local
+  - Cambiar la información mostrada segun el componente lista que lo invoque
