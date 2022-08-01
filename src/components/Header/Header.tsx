@@ -1,8 +1,6 @@
 import HeaderStyled from "./HeaderStyles";
 
 const Header = (): JSX.Element => {
-  let isOpen = false;
-
   return (
     <HeaderStyled>
       <h1>
@@ -15,7 +13,7 @@ const Header = (): JSX.Element => {
       <img
         className="header__icon"
         alt="Menu icon"
-        src={`./images/${!isOpen ? "Menu-open.svg" : "Menu-close.svg"}`}
+        src="./images/Menu-open.svg"
       ></img>
     </HeaderStyled>
   );
