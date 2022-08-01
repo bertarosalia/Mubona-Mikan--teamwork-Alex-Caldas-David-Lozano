@@ -8,9 +8,9 @@ describe("Given a button component", () => {
     test("Then it should should show a 'delete' text inside", () => {
       render(<Button text={buttonText} actionOnClick={() => {}} />);
 
-      const button = screen.getByRole("button");
+      const button = screen.getByRole("button", { name: buttonText });
 
-      expect(button).toHaveAttribute();
+      expect(button).toHaveTextContent(buttonText);
     });
   });
 });
