@@ -1,12 +1,9 @@
-import "./App.css";
-import Footer from "./components/Footer/Footer";
+import React from "react";
+import Button from "./components/Button/Button";
 
-const App = () => {
-  return (
-    <>
-      <Footer />
-    </>
-  );
-};
+function App() {
+  return <Button text="" actionOnClick={() => {}} />;
+}
+
 
 export default App;
