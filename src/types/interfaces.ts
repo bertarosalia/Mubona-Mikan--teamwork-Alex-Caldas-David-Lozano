@@ -1,4 +1,4 @@
-export interface animeInfo {
+export interface AnimeInfo {
   pagination: {
     has_next_page: boolean;
     current_page: number;
@@ -7,10 +7,10 @@ export interface animeInfo {
       total: number;
     };
   };
-  data: animeData[];
+  data: AnimeData[];
 }
 
-export interface animeData {
+export interface AnimeData {
   mal_id: number;
   image: {
     jpg: {
@@ -25,9 +25,9 @@ export interface animeData {
   score: number;
   synopsis: string;
   year: number;
-  genres: genresAnime[];
+  genres: GenresAnime[];
 }
 
-export interface genresAnime {
+export interface GenresAnime {
   name: string;
 }

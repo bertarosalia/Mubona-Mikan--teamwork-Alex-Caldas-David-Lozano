@@ -1,8 +1,8 @@
 import { createContext } from "react";
-import { animeInfo } from "../../types/interfaces";
+import { AnimeInfo } from "../../types/interfaces";
 
 interface IAnimeContext {
-  animeInfo: animeInfo;
+  animeInfo: AnimeInfo;
 }
 const AnimeContext = createContext<IAnimeContext>({
   animeInfo: {
