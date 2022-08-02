@@ -78,7 +78,6 @@ describe("Given a AnimeCardList", () => {
       };
 
       const animesCardGenerated = 2;
-      const headingText = "Shingeky no Kyogin: Quien Eren y que hace en Mikasa";
 
       render(
         <AnimeContext.Provider value={animeInfoList}>
@@ -86,9 +85,7 @@ describe("Given a AnimeCardList", () => {
         </AnimeContext.Provider>
       );
 
-      const firstAnime = screen.getAllByRole("heading", {
-        name: headingText,
-      });
+      const firstAnime = screen.getAllByRole("article");
 
       expect(firstAnime).toHaveLength(animesCardGenerated);
     });
