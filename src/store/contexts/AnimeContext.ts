@@ -1,10 +1,11 @@
 import { createContext } from "react";
 import { AnimeInfo } from "../../types/interfaces";
 
-interface IAnimeContext {
+export interface IAnimeContext {
   animeInfo: AnimeInfo;
 }
-const AnimeContext = createContext<IAnimeContext>({
+
+export const AnimeContext = createContext<IAnimeContext>({
   animeInfo: {
     pagination: {
       has_next_page: false,
@@ -17,5 +18,3 @@ const AnimeContext = createContext<IAnimeContext>({
     data: [],
   },
 });
-
-export default AnimeContext;
