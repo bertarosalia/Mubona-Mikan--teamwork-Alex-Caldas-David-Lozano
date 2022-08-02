@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../Button/Button";
+import { AnimeData } from "../../types/interfaces";
 
 const ArticleStyled = styled.article`
   box-sizing: border-box;
@@ -58,7 +59,11 @@ const ArticleStyled = styled.article`
   }
 `;
 
-const AnimeCard = (): JSX.Element => {
+interface AnimeCardProps {
+  animeInfo: AnimeData;
+}
+
+const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
   return (
     <>
       <ArticleStyled>
