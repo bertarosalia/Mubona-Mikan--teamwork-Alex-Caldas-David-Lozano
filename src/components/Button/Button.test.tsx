@@ -16,13 +16,13 @@ describe("Given a button component", () => {
   });
   describe("When it receives a function and user clics on it", () => {
     test("Then it should call the function", () => {
-      const mockActionOnClic = jest.fn();
+      const mockActionOnClick = jest.fn();
 
       render(
         <Button
           text="patata"
           actionOnClick={() => {
-            mockActionOnClic();
+            mockActionOnClick();
           }}
         />
       );
@@ -30,7 +30,7 @@ describe("Given a button component", () => {
       const button = screen.getByRole("button", { name: "patata" });
       userEvent.click(button);
 
-      expect(mockActionOnClic).toHaveBeenCalled();
+      expect(mockActionOnClick).toHaveBeenCalled();
     });
   });
 });
