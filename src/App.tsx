@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AnimeListcard from "./components/AnimeListcard/AnimeListCard";
+import AnimeCardList from "./components/AnimeCardList/AnimeCardList";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { AnimeContext } from "./store/contexts/AnimeContext";
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header />
-      {current_page !== -1 && <AnimeListcard />}
+      {current_page !== -1 && <AnimeCardList />}
       <Footer />
     </>
   );
