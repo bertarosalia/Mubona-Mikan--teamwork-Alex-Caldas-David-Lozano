@@ -36,6 +36,7 @@ const FooterStyled = styled.footer`
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      gap: 1rem;
     }
   }
 `;
