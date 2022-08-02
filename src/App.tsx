@@ -5,10 +5,10 @@ import Header from "./components/Header/Header";
 import { AnimeContext } from "./store/contexts/AnimeContext";
 
 function App() {
-  const { animeInfo } = useContext(AnimeContext);
+  const { animeListInfo } = useContext(AnimeContext);
   const {
     pagination: { current_page },
-  } = animeInfo;
+  } = animeListInfo;
 
   return (
     <>

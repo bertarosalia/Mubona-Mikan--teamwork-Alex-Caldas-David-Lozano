@@ -7,8 +7,6 @@ const FooterStyled = styled.footer`
   height: 15rem;
 
   box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
 
   background-color: #008585;
   color: white;

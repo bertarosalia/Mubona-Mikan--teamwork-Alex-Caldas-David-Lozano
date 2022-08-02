@@ -9,7 +9,7 @@ const AnimeContextProvider = ({
   children,
 }: AnimeContextProviderProps): JSX.Element => {
   const animeInfoTest: IAnimeContext = {
-    animeInfo: {
+    animeListInfo: {
       pagination: {
         has_next_page: false,
         current_page: -1,
@@ -22,7 +22,7 @@ const AnimeContextProvider = ({
     },
   };
 
-  const [animeInfo, setAnimeInfo] = useState(animeInfoTest.animeInfo);
+  const [animeListInfo, setAnimeInfo] = useState(animeInfoTest.animeListInfo);
 
   const apiURL = "https://api.jikan.moe/v4/top/anime?limit=10";
 
@@ -37,7 +37,7 @@ const AnimeContextProvider = ({
   }, []);
 
   return (
-    <AnimeContext.Provider value={{ animeInfo }}>
+    <AnimeContext.Provider value={{ animeListInfo }}>
       {children}
     </AnimeContext.Provider>
   );
