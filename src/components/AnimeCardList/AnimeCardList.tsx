@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { AnimeContext } from "../../store/contexts/AnimeContext";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import Button from "../Button/Button";
-import AnimeCardListStyled from "./AnimeListCardStyled";
+import AnimeCardListStyled from "./AnimeCardListStyled";
 
-const AnimeListcard = () => {
+const AnimeCardList = () => {
   const { animeListInfo } = useContext(AnimeContext);
   const { data: animesList } = animeListInfo;
   const {
@@ -40,4 +40,4 @@ const AnimeListcard = () => {
   );
 };
 
-export default AnimeListcard;
+export default AnimeCardList;
