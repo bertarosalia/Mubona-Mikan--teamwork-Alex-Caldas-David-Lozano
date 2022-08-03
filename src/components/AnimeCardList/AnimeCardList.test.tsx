@@ -75,6 +75,7 @@ describe("Given a AnimeCardList", () => {
             },
           ],
         },
+        dispatch: () => {},
       };
 
       const animesCardGenerated = 2;
