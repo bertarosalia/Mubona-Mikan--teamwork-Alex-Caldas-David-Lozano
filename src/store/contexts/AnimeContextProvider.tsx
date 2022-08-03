@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
+import apiUrlReducer from "../reducers/apiUrlReducer";
 import { AnimeContext, IAnimeContext } from "./AnimeContext";
 
 interface AnimeContextProviderProps {
@@ -6,7 +7,7 @@ interface AnimeContextProviderProps {
 }
 
 const AnimeContextProvider = ({
-  children,
+  children
 }: AnimeContextProviderProps): JSX.Element => {
   const animeInfoTest: IAnimeContext = {
     animeListInfo: {
@@ -15,16 +16,17 @@ const AnimeContextProvider = ({
         current_page: -1,
         items: {
           count: 0,
-          total: 666,
-        },
+          total: 666
+        }
       },
-      data: [],
-    },
+      data: []
+    }
   };
 
   const [animeListInfo, setAnimeInfo] = useState(animeInfoTest.animeListInfo);
 
-  const apiURL = "https://api.jikan.moe/v4/top/anime?limit=10";
+  const [currentPage, dispatch] = useReducer(apiUrlReducer, 1);
+  const apiURL = `https://api.jikan.moe/v4/top/anime?limit=10&page=${currentPage}`;
 
   const loadAnimeApi = async () => {
     const response = await fetch(apiURL);
