@@ -44,7 +44,7 @@ const AnimeContextProvider = ({
       setAnimeInfo(animeApiInfo);
     };
     loadAnimeApi();
-  }, [UIdispatch]);
+  }, [UIdispatch, apiURL]);
 
   return (
     <AnimeContext.Provider value={{ animeListInfo, dispatch }}>
