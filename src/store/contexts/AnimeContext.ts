@@ -1,8 +1,10 @@
-import { createContext } from "react";
+import { createContext, Dispatch } from "react";
+import { Action, TestingAction } from "../../types/actions";
 import { AnimeInfo } from "../../types/interfaces";
 
 export interface IAnimeContext {
   animeListInfo: AnimeInfo;
+  dispatch: Dispatch<Action | TestingAction>;
 }
 
 export const AnimeContext = createContext<IAnimeContext>({
@@ -17,4 +19,5 @@ export const AnimeContext = createContext<IAnimeContext>({
     },
     data: [],
   },
+  dispatch: () => {},
 });

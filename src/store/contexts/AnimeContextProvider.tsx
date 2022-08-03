@@ -7,8 +7,10 @@ interface AnimeContextProviderProps {
 }
 
 const AnimeContextProvider = ({
-  children
+  children,
 }: AnimeContextProviderProps): JSX.Element => {
+  const [currentPage, dispatch] = useReducer(apiUrlReducer, 1);
+
   const animeInfoTest: IAnimeContext = {
     animeListInfo: {
       pagination: {
@@ -16,16 +18,15 @@ const AnimeContextProvider = ({
         current_page: -1,
         items: {
           count: 0,
-          total: 666
-        }
+          total: 666,
+        },
       },
-      data: []
-    }
+      data: [],
+    },
+    dispatch: dispatch,
   };
 
   const [animeListInfo, setAnimeInfo] = useState(animeInfoTest.animeListInfo);
-
-  const [currentPage, dispatch] = useReducer(apiUrlReducer, 1);
   const apiURL = `https://api.jikan.moe/v4/top/anime?limit=10&page=${currentPage}`;
 
   const loadAnimeApi = async () => {
@@ -39,7 +40,7 @@ const AnimeContextProvider = ({
   }, []);
 
   return (
-    <AnimeContext.Provider value={{ animeListInfo }}>
+    <AnimeContext.Provider value={{ animeListInfo, dispatch }}>
       {children}
     </AnimeContext.Provider>
   );
