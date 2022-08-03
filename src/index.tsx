@@ -11,11 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <AnimeContextProvider>
-      <UIContextProvider>
+    <UIContextProvider>
+      <AnimeContextProvider>
         <App />
-      </UIContextProvider>
-    </AnimeContextProvider>
+      </AnimeContextProvider>
+    </UIContextProvider>
   </React.StrictMode>
 );
 

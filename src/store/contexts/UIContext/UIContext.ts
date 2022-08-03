@@ -3,10 +3,10 @@ import { UIState } from "../../../types/interfaces";
 import { ActionUI } from "../../../types/actionTypesUI/actionsUI";
 export interface IUIContext {
   ui: UIState;
-  dispatch: Dispatch<ActionUI>;
+  UIdispatch: Dispatch<ActionUI>;
 }
 
 export const UIContext = createContext<IUIContext>({
   ui: { isLoading: false },
-  dispatch: () => {},
+  UIdispatch: () => {},
 });

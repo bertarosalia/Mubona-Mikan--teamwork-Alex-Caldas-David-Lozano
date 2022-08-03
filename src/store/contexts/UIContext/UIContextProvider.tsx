@@ -17,7 +17,7 @@ const UIContextProvider = ({
   const [UIInfo, dispatchUI] = useReducer(UIReducer, initialUI);
 
   return (
-    <UIContext.Provider value={{ ui: UIInfo, dispatch: dispatchUI }}>
+    <UIContext.Provider value={{ ui: UIInfo, UIdispatch: dispatchUI }}>
       {children}
     </UIContext.Provider>
   );
