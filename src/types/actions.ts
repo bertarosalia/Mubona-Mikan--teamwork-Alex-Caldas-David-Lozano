@@ -15,3 +15,5 @@ export interface TestingAction extends AnyAction {
 export interface NextAnimePageAction extends Action {
   payload: boolean;
 }
+
+export interface PreviousAnimePageAction extends Action {}
