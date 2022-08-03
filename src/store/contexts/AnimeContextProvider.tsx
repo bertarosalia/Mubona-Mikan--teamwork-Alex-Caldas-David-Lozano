@@ -29,15 +29,14 @@ const AnimeContextProvider = ({
   const [animeListInfo, setAnimeInfo] = useState(animeInfoTest.animeListInfo);
   const apiURL = `https://api.jikan.moe/v4/top/anime?limit=10&page=${currentPage}`;
 
-  const loadAnimeApi = async () => {
-    const response = await fetch(apiURL);
-    const animeApiInfo = await response.json();
-    setAnimeInfo(animeApiInfo);
-  };
-
   useEffect(() => {
+    const loadAnimeApi = async () => {
+      const response = await fetch(apiURL);
+      const animeApiInfo = await response.json();
+      setAnimeInfo(animeApiInfo);
+    };
     loadAnimeApi();
-  }, []);
+  }, [apiURL]);
 
   return (
     <AnimeContext.Provider value={{ animeListInfo, dispatch }}>
