@@ -2,13 +2,13 @@ import {
   ActionUI,
   TestingActionUI,
 } from "../../../types/actionTypesUI/actionsUI";
-import { IUIContext } from "../../contexts/UIContext/UIContext";
+import { UIState } from "../../../types/interfaces";
 
 const UIReducer = (
-  currentUI: IUIContext,
+  currentUI: UIState,
   action: ActionUI | TestingActionUI
-): IUIContext => {
-  let newUI: IUIContext;
+): UIState => {
+  let newUI: UIState;
 
   switch ((action as ActionUI).type) {
     case "showLoading":
