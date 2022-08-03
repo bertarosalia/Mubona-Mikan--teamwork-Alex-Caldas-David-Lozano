@@ -65,7 +65,7 @@ const Footer = (): JSX.Element => {
         </a>
       </div>
       <p>
-        Mubōna mikan is a property of Mandarinas Temerarias S.AL. ©2022
+        Mubōna mikan is a property of Mandarinas Temerarias S.A.L. ©2022
         <br></br>All rights reserved
       </p>
     </FooterStyled>
