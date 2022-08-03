@@ -9,8 +9,7 @@ const AnimeCardListStyled = styled.main`
   .animeListCard {
     &__title {
       font-size: 2rem;
-      color: #e5c185;
-      opacity: 0.5;
+      color: rgba(229, 193, 133, 1);
     }
 
     &__container {
