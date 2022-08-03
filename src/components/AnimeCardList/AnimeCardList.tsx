@@ -35,7 +35,7 @@ const AnimeCardList = () => {
       </section>
       <div className="animeListCard__pagination">
         <Button
-          text="Atras"
+          text="Previous"
           actionOnClick={() => {
             dispatch(previousAnimePageCreator());
           }}
@@ -44,7 +44,7 @@ const AnimeCardList = () => {
           count * current_page
         } / ${total}`}</span>
         <Button
-          text="Adelante"
+          text="Next"
           actionOnClick={() => {
             dispatch(nextAnimePageActionCreator(true));
           }}
