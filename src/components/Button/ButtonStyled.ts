@@ -7,7 +7,7 @@ const ButtonStyled = styled.button`
   border-radius: 3rem;
   border: none;
   width: 5rem;
-  height: 3rem;
+  height: 2.5rem;
   background-color: #ff6b00;
   font-weight: bold;
 `;

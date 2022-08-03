@@ -4,7 +4,7 @@ const ArticleStyled = styled.article`
   box-sizing: border-box;
   height: 160px;
   border-radius: 20px;
-  box-shadow: 3px 3px 10px grey;
+  box-shadow: 0 0 10px grey;
   display: flex;
   flex-direction: row;
   object-fit: cover;
