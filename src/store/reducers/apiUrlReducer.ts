@@ -1,7 +1,6 @@
 import {
   Action,
   NextAnimePageAction,
-  PreviousAnimePageAction,
   TestingAction,
 } from "../../types/actions";
 
