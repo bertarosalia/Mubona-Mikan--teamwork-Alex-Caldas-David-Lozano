@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ArticleStyled = styled.article`
+const AnimeCardStyled = styled.article`
   box-sizing: border-box;
   height: 160px;
   border-radius: 20px;
@@ -42,4 +42,4 @@ const ArticleStyled = styled.article`
   }
 `;
 
-export default ArticleStyled;
+export default AnimeCardStyled;
