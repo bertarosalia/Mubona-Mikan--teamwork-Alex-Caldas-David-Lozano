@@ -31,3 +31,7 @@ export interface AnimeData {
 export interface GenresAnime {
   name: string;
 }
+
+export interface UIState {
+  isLoading: boolean;
+}
