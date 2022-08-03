@@ -3,9 +3,13 @@ import { AnimeContext } from "../../store/contexts/AnimeContext";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import Button from "../Button/Button";
 import AnimeCardListStyled from "./AnimeCardListStyled";
+import {
+  nextAnimePageActionCreator,
+  previousAnimePageCreator,
+} from "../../store/contexts/actions/apiUrlActionCreator";
 
 const AnimeCardList = () => {
-  const { animeListInfo } = useContext(AnimeContext);
+  const { animeListInfo, dispatch } = useContext(AnimeContext);
   const { data: animesList } = animeListInfo;
   const {
     pagination: { current_page },
@@ -30,11 +34,21 @@ const AnimeCardList = () => {
         ))}
       </section>
       <div className="animeListCard__pagination">
-        <Button text="Atras" actionOnClick={() => {}} />
+        <Button
+          text="Atras"
+          actionOnClick={() => {
+            dispatch(previousAnimePageCreator());
+          }}
+        />
         <span className="animeListCard__numberPage">{`${
           count * current_page
         } / ${total}`}</span>
-        <Button text="Adelante" actionOnClick={() => {}} />
+        <Button
+          text="Adelante"
+          actionOnClick={() => {
+            dispatch(nextAnimePageActionCreator(true));
+          }}
+        />
       </div>
     </AnimeCardListStyled>
   );

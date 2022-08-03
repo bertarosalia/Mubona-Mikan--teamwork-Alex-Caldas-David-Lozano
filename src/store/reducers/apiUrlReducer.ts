@@ -1,7 +1,8 @@
 import {
   Action,
   NextAnimePageAction,
-  TestingAction
+  PreviousAnimePageAction,
+  TestingAction,
 } from "../../types/actions";
 
 const apiUrlReducer = (
@@ -15,13 +16,15 @@ const apiUrlReducer = (
       newNumberPage = (action as NextAnimePageAction).payload
         ? currentNumberPage + 1
         : currentNumberPage;
-
       break;
 
+    case "previousAnimePage":
+      newNumberPage =
+        currentNumberPage === 1 ? currentNumberPage : currentNumberPage - 1;
+      break;
     default:
       newNumberPage = currentNumberPage;
   }
-
   return newNumberPage;
 };
 
