@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
-  border-radius: 3rem;
   border: none;
-  width: 5rem;
-  height: 2.5rem;
-  background-color: #ff6b00;
+  border-radius: 3rem;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
   font-weight: bold;
+  color: #fff;
+  text-align: center;
+  background-color: #ff6b00;
+  cursor: pointer;
 `;
 
 export default ButtonStyled;
