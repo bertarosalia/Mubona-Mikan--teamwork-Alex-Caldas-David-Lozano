@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import ArticleStyled from "./AnimeCardStyled";
+import AnimeCardStyled from "./AnimeCardStyled";
 import { AnimeData } from "../../types/interfaces";
 
 interface AnimeCardProps {
@@ -8,7 +8,7 @@ interface AnimeCardProps {
 
 const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
   return (
-    <ArticleStyled>
+    <AnimeCardStyled>
       <div className="animeCard_image-frame">
         <img src={animeInfo.images.jpg.image_url} alt={animeInfo.title} />
       </div>
@@ -22,7 +22,7 @@ const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
           <Button text="Add" actionOnClick={() => console.log("clicked")} />
         </div>
       </div>
-    </ArticleStyled>
+    </AnimeCardStyled>
   );
 };
 
