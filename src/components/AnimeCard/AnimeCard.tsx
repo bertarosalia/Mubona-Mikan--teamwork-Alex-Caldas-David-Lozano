@@ -7,7 +7,6 @@ interface AnimeCardProps {
 }
 
 const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
-  console.log(animeInfo);
   return (
     <ArticleStyled>
       <div className="animeCard_image-frame">

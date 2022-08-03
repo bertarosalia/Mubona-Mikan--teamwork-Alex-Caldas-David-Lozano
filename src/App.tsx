@@ -7,7 +7,7 @@ import { AnimeContext } from "./store/contexts/AnimeContext";
 function App() {
   const { animeListInfo } = useContext(AnimeContext);
   const {
-    pagination: { current_page },
+    pagination: { current_page }
   } = animeListInfo;
 
   return (
