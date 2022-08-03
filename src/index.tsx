@@ -4,15 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AnimeContextProvider from "./store/contexts/AnimeContextProvider";
+import UIContextProvider from "./store/contexts/UIContext/UIContextProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <AnimeContextProvider>
-      <App />
-    </AnimeContextProvider>
+    <UIContextProvider>
+      <AnimeContextProvider>
+        <App />
+      </AnimeContextProvider>
+    </UIContextProvider>
   </React.StrictMode>
 );
 

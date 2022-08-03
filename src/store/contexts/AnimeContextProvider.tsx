@@ -1,6 +1,11 @@
-import { useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import apiUrlReducer from "../reducers/apiUrlReducer";
+import {
+  closeLoadingActionCreator,
+  showLoadingActionCreator,
+} from "./actions/actionUI/UIActionsCreator";
 import { AnimeContext, IAnimeContext } from "./AnimeContext";
+import { UIContext } from "./UIContext/UIContext";
 
 interface AnimeContextProviderProps {
   children: JSX.Element | JSX.Element[];
@@ -10,6 +15,7 @@ const AnimeContextProvider = ({
   children,
 }: AnimeContextProviderProps): JSX.Element => {
   const [currentPage, dispatch] = useReducer(apiUrlReducer, 1);
+  const { UIdispatch } = useContext(UIContext);
 
   const animeInfoTest: IAnimeContext = {
     animeListInfo: {
@@ -31,12 +37,14 @@ const AnimeContextProvider = ({
 
   useEffect(() => {
     const loadAnimeApi = async () => {
+      UIdispatch(showLoadingActionCreator());
       const response = await fetch(apiURL);
       const animeApiInfo = await response.json();
+      UIdispatch(closeLoadingActionCreator());
       setAnimeInfo(animeApiInfo);
     };
     loadAnimeApi();
-  }, [apiURL]);
+  }, [UIdispatch, apiURL]);
 
   return (
     <AnimeContext.Provider value={{ animeListInfo, dispatch }}>
