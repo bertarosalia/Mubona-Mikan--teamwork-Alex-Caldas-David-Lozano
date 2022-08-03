@@ -1,4 +1,7 @@
-import { IUIContext, UIContext } from "./UIContext";
+import { useReducer } from "react";
+import UIReducer from "../../reducers/UIReducer/UIReducer";
+import { UIContext } from "./UIContext";
+import { UIState } from "../../../types/interfaces";
 
 interface UIContextProviderProps {
   children: JSX.Element | JSX.Element[];
@@ -7,13 +10,17 @@ interface UIContextProviderProps {
 const UIContextProvider = ({
   children,
 }: UIContextProviderProps): JSX.Element => {
-  const initialUI: IUIContext = {
-    ui: {
-      isLoading: false,
-    },
+  const initialUI: UIState = {
+    isLoading: false,
   };
 
-  return <UIContext.Provider value={initialUI}>{children}</UIContext.Provider>;
+  const [UIInfo, dispatchUI] = useReducer(UIReducer, initialUI);
+
+  return (
+    <UIContext.Provider value={{ ui: UIInfo, UIdispatch: dispatchUI }}>
+      {children}
+    </UIContext.Provider>
+  );
 };
 
 export default UIContextProvider;
