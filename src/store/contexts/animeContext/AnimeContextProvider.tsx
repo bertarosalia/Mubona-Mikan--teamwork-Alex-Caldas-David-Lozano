@@ -38,7 +38,7 @@ const AnimeContextProvider = ({
     pagination: { current_page },
   } = animeListInfo;
 
-  const apiURL = `https://api.jikan.moe/v4/top/anime?limit=10&page=${current_page}`;
+  const apiURL = `https://api.jikan.moe/v4/top/anime?limit=12&page=${current_page}`;
 
   useEffect(() => {
     const loadAnimeApi = async () => {

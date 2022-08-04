@@ -24,7 +24,7 @@ const FooterStyled = styled.footer`
   a,
   img {
     width: auto;
-    height: 100%;
+    height: 2.5rem;
   }
   .footer {
     &__RRSS,
