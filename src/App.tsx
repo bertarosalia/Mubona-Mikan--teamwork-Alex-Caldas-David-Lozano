@@ -1,19 +1,15 @@
 import { useContext } from "react";
-import AnimeCardList from "./components/AnimeCardList/AnimeCardList";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import Navigation from "./components/Navigation/Navigation";
-import { AnimeContext } from "./store/contexts/animeContext/AnimeContext";
 import { UIContext } from "./store/contexts/UIContext/UIContext";
 import { Routes, Route } from "react-router-dom";
+import MyListPage from "./pages/MyListPage/MyListPage";
+import AnimesPage from "./pages/AnimesPage/AnimesPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
-  const { animeListInfo } = useContext(AnimeContext);
-  const {
-    pagination: { current_page },
-  } = animeListInfo;
-
   const {
     ui: { isLoading },
   } = useContext(UIContext);
@@ -23,10 +19,14 @@ function App() {
       <Header />
       <Navigation />
       {isLoading && <Loading />}
-      {current_page !== -1 && <AnimeCardList />}
+
       <Routes>
-        <Route path="/AnimeCardList" element={<AnimeCardList />} />
-        <Route path="*" />
+        <Route path="/" element={<AnimesPage />} />
+        <Route path="/home-page" element={<AnimesPage />} />
+
+        <Route path="/animes" element={<AnimesPage />} />
+        <Route path="/my-list" element={<MyListPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>
