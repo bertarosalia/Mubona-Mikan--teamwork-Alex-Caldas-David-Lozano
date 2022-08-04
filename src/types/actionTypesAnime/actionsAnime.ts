@@ -1,3 +1,4 @@
+import { AnimeInfo } from "../interfaces";
 import { ActionTypeAnime } from "./actionsTypesAnime";
 
 export interface AnyActionAnime {
@@ -10,6 +11,10 @@ export interface ActionAnime extends AnyActionAnime {
 
 export interface TestingActionAnime extends AnyActionAnime {
   type: string;
+}
+
+export interface loadAnimeListAction extends ActionAnime {
+  payload: AnimeInfo;
 }
 
 export interface NextAnimePageAction extends ActionAnime {
