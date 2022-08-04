@@ -1,4 +1,4 @@
-import { nextAnimePageActionCreator } from "../apiUrlActionCreator";
+import { nextAnimePageActionCreator } from "./animeActionsCreator";
 
 describe("Given an action creator nextAnimePageActionCreator", () => {
   describe("When it´s instatiated with a true value", () => {
