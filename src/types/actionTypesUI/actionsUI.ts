@@ -15,3 +15,12 @@ export interface TestingActionUI extends AnyActionUI {
 export interface ShowLoadingUI extends ActionUI {}
 
 export interface CloseLoadingUI extends ActionUI {}
+
+export interface ShowModalUI extends ActionUI {
+  payload: {
+    isPositive: boolean;
+    message: string;
+  };
+}
+
+export interface CloseModalUI extends ActionUI {}

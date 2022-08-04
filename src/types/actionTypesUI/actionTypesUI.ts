@@ -1,1 +1,5 @@
-export type ActionTypeUI = "showLoading" | "closeLoading";
+export type ActionTypeUI =
+  | "showLoading"
+  | "closeLoading"
+  | "showModal"
+  | "closeModal";

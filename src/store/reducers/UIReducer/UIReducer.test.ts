@@ -5,12 +5,18 @@ describe("Given the UIReducer function", () => {
     test("Then should return an object with isLoading 'true'", () => {
       const loadingState = {
         isLoading: false,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
       const showLoadingAction = {
         type: "showLoading",
       };
       const newloadingState = {
         isLoading: true,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
       const showLoadingCreatonAction = UIReducer(
@@ -26,12 +32,18 @@ describe("Given the UIReducer function", () => {
     test("Then should return an object with isLoading 'false'", () => {
       const loadingState = {
         isLoading: true,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
       const showLoadingAction = {
         type: "closeLoading",
       };
       const newloadingState = {
         isLoading: false,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
       const showLoadingCreatonAction = UIReducer(
@@ -47,12 +59,18 @@ describe("Given the UIReducer function", () => {
     test("Then should return an object with isLoading 'true'", () => {
       const loadingState = {
         isLoading: true,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
       const showLoadingAction = {
         type: "Testing",
       };
       const newloadingState = {
         isLoading: true,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
       const showLoadingCreatonAction = UIReducer(

@@ -40,9 +40,9 @@ const AnimeCardList = () => {
             dispatchAnime(previousAnimePageActionCreator());
           }}
         />
-        <span className="animeListCard__numberPage">{`${
-          count * current_page
-        } / ${total}`}</span>
+        <span className="animeListCard__numberPage">{`
+        ${current_page} / 
+        ${Math.ceil(total / count)}`}</span>
         <Button
           text="Next"
           actionOnClick={() => {
