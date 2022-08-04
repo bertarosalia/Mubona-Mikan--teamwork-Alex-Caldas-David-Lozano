@@ -60,4 +60,16 @@ describe("Given an api URL Reducer function", () => {
       expect(apiUrlReducerTest).toBe(newNumberPage);
     });
   });
+
+  describe("When it´s instantiated with '2' and an action with type 'patatafrita'", () => {
+    test("Then it should return '2'", () => {
+      const currentNumberPage = 2;
+      const newNumberPage = 2;
+      const actionTest = { type: "patatafrita" };
+
+      const apiUrlReducerTest = apiUrlReducer(currentNumberPage, actionTest);
+
+      expect(apiUrlReducerTest).toBe(newNumberPage);
+    });
+  });
 });
