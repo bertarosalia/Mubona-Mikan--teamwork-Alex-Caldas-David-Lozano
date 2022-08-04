@@ -9,6 +9,14 @@ const HeaderStyled = styled.header`
   height: 3rem;
   align-items: center;
 
+  button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
   .header {
     &__image,
     &__icon {

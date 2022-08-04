@@ -1,59 +1,20 @@
-import styled from "styled-components";
-
-const FooterStyled = styled.footer`
-  border: 0;
-  padding: 1rem;
-  width: 100vw;
-  height: 15rem;
-
-  box-sizing: border-box;
-
-  background-color: #008585;
-  color: white;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-
-  p {
-    margin: 0;
-    text-align: center;
-  }
-  a,
-  img {
-    width: auto;
-    height: 100%;
-  }
-  .footer {
-    &__RRSS,
-    &__stores {
-      width: 100%;
-      max-width: 450px;
-      height: 3rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      gap: 1rem;
-    }
-  }
-`;
+import FooterStyled from "./FooterStyled";
 
 const Footer = (): JSX.Element => {
   return (
     <FooterStyled>
       <div className="footer__RRSS">
         <a href="https://discord.com/">
-          <img src="./images/iconDiscord.png" alt="Icono Discord" />
+          <img src="./images/iconDiscord.svg" alt="Icono Discord" />
         </a>
         <a href="https://www.facebook.com/">
-          <img src="./images/iconFacebook.png" alt="Icono Facebook" />
+          <img src="./images/iconFacebook.svg" alt="Icono Facebook" />
         </a>
         <a href="https://www.instagram.com/">
-          <img src="./images/iconInstagram.png" alt="Icono Instagram" />
+          <img src="./images/iconInstagram.svg" alt="Icono Instagram" />
         </a>
         <a href="https://twitter.com/">
-          <img src="./images/iconTwitter.png" alt="Icono Twitter" />
+          <img src="./images/iconTwitter.svg" alt="Icono Twitter" />
         </a>
       </div>
       <div className="footer__stores">
