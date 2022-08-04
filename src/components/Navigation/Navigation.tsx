@@ -5,14 +5,20 @@ const Navigation = (): JSX.Element => (
   <NavigationStyled>
     <nav className="navigation-anime">
       <ul className="list-animes">
-        <li>
-          <NavLink to="/">News</NavLink>
+        <li className="list-animes__links">
+          <NavLink to="/home-page" className={"nav-links"}>
+            Home
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/">Search</NavLink>
+        <li className="list-animes__links">
+          <NavLink to="/animes" className={"nav-links"}>
+            Animes
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/AnimeCardList">Animes</NavLink>
+        <li className="list-animes__links">
+          <NavLink to="/my-list" className={"nav-links"}>
+            My List
+          </NavLink>
         </li>
         <li>
           <NavLink to="*"></NavLink>
