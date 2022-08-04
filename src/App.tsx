@@ -18,10 +18,9 @@ function App() {
   return (
     <>
       {isModalShowing && <Modal message={message} type={type} />}
+      {isLoading && <Loading />}
       <Header />
       <Navigation />
-      {isLoading && <Loading />}
-
       <Routes>
         <Route path="/" element={<AnimesPage />} />
         <Route path="/home-page" element={<AnimesPage />} />
