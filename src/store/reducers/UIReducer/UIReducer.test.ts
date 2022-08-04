@@ -14,6 +14,9 @@ describe("Given the UIReducer function", () => {
       };
       const newloadingState = {
         isLoading: true,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
       const showLoadingCreatonAction = UIReducer(
@@ -38,6 +41,9 @@ describe("Given the UIReducer function", () => {
       };
       const newloadingState = {
         isLoading: false,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
       const showLoadingCreatonAction = UIReducer(
@@ -62,6 +68,9 @@ describe("Given the UIReducer function", () => {
       };
       const newloadingState = {
         isLoading: true,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
       const showLoadingCreatonAction = UIReducer(
