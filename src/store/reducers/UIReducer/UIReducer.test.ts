@@ -55,6 +55,58 @@ describe("Given the UIReducer function", () => {
     });
   });
 
+  describe("When it's instantiated with an UIState and 'showModal' Action", () => {
+    test("Then should return an object with isModalShowing 'true',", () => {
+      const UIState = {
+        isLoading: false,
+        isModalShowing: false,
+        message: "",
+        type: false,
+      };
+      const showModalAction = {
+        type: "showModal",
+        payload: {
+          isPositive: true,
+          message: "Hola",
+        },
+      };
+      const newUIState = {
+        isLoading: false,
+        isModalShowing: true,
+        message: "Hola",
+        type: true,
+      };
+
+      const showModalCreatonAction = UIReducer(UIState, showModalAction);
+
+      expect(showModalCreatonAction).toEqual(newUIState);
+    });
+  });
+
+  describe("When it's instantiated with an UIState and 'closeModal' Action", () => {
+    test("Then should return an object with isModalShowing 'true',", () => {
+      const UIState = {
+        isLoading: false,
+        isModalShowing: true,
+        message: "Hola",
+        type: false,
+      };
+      const closeModalAction = {
+        type: "closeModal",
+      };
+      const newUIState = {
+        isLoading: false,
+        isModalShowing: false,
+        message: "Hola",
+        type: false,
+      };
+
+      const closeModalCreatonAction = UIReducer(UIState, closeModalAction);
+
+      expect(closeModalCreatonAction).toEqual(newUIState);
+    });
+  });
+
   describe("When it's instantiated with an object with property isLoading 'true' and 'Testing' Action", () => {
     test("Then should return an object with isLoading 'true'", () => {
       const loadingState = {
