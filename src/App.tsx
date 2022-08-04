@@ -6,7 +6,7 @@ import Loading from "./components/Loading/Loading";
 import Navigation from "./components/Navigation/Navigation";
 import { AnimeContext } from "./store/contexts/animeContext/AnimeContext";
 import { UIContext } from "./store/contexts/UIContext/UIContext";
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const { animeListInfo } = useContext(AnimeContext);
