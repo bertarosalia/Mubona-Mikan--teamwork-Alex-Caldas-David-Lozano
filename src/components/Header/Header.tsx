@@ -10,11 +10,13 @@ const Header = (): JSX.Element => {
           src="./images/Mubona.svg"
         ></img>
       </h1>
-      <img
-        className="header__icon"
-        alt="Menu icon"
-        src="./images/Menu-open.svg"
-      ></img>
+      <button>
+        <img
+          className="header__icon"
+          alt="Menu icon"
+          src="./images/Menu-open.svg"
+        ></img>
+      </button>
     </HeaderStyled>
   );
 };

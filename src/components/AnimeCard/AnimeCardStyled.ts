@@ -3,12 +3,18 @@ import styled from "styled-components";
 const AnimeCardStyled = styled.article`
   box-sizing: border-box;
   height: 160px;
+  width: 100%;
+  min-width: 300px;
   border-radius: 20px;
   box-shadow: 0 0 10px grey;
   display: flex;
   flex-direction: row;
   object-fit: cover;
   overflow: hidden;
+
+  @media (min-width: 450px) {
+    width: 400px;
+  }
 
   .animeCard_image-frame {
     height: 100%;
