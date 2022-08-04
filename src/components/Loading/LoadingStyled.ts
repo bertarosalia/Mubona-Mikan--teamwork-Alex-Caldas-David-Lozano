@@ -6,6 +6,10 @@ const LoadingStyled = styled.div`
   background-color: white;
   text-align: center;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   span {
     font-weight: 700;
     font-size: 40px;
@@ -13,6 +17,7 @@ const LoadingStyled = styled.div`
   }
   img {
     width: 100%;
+    max-width: 500px;
     height: auto;
   }
 `;

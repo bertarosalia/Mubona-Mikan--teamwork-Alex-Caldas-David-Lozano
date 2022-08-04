@@ -17,7 +17,7 @@ const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
   return (
     <AnimeCardStyled>
       <div className="animeCard_image-frame">
-        <img src={animeInfo.images.jpg.image_url} alt={animeInfo.title} />
+        <img src={animeInfo.images.webp.image_url} alt={animeInfo.title} />
       </div>
       <div className="animeCard_info">
         <h3>{animeInfo.title}</h3>

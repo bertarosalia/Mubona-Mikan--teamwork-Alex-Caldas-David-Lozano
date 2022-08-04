@@ -13,7 +13,7 @@ export interface AnimeInfo {
 export interface AnimeData {
   mal_id: number;
   images: {
-    jpg: {
+    webp: {
       image_url: string;
     };
   };

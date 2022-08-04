@@ -21,8 +21,8 @@ function App() {
 
   return (
     <>
-      <Header />
       {isModalShowing && <Modal message={message} type={type} />}
+      <Header />
       <Navigation />
       {isLoading && <Loading />}
       {current_page !== -1 && <AnimeCardList />}
