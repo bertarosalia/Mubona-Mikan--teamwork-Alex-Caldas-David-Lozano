@@ -10,6 +10,9 @@ const animeReducer = (
   action: ActionAnime | TestingActionAnime
 ) => {
   let newAnimeInfo: AnimeInfo;
+  const {
+    pagination: { current_page },
+  } = currentAnimeInfo;
 
   switch ((action as ActionAnime).type) {
     case "loadAnimeList":
@@ -18,7 +21,19 @@ const animeReducer = (
     case "nextAnimePage":
       newAnimeInfo = {
         ...currentAnimeInfo,
-        pagination: { ...currentAnimeInfo.pagination, current_page: 2 },
+        pagination: {
+          ...currentAnimeInfo.pagination,
+          current_page: current_page + 1,
+        },
+      };
+      break;
+    case "previousAnimePage":
+      newAnimeInfo = {
+        ...currentAnimeInfo,
+        pagination: {
+          ...currentAnimeInfo.pagination,
+          current_page: current_page - 1,
+        },
       };
       break;
     default:
