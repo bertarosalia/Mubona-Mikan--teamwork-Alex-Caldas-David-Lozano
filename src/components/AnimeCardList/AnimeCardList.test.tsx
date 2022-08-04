@@ -23,7 +23,7 @@ describe("Given a AnimeCardList", () => {
         {
           mal_id: 1,
           images: {
-            jpg: {
+            webp: {
               image_url: "",
             },
           },
@@ -40,7 +40,7 @@ describe("Given a AnimeCardList", () => {
         {
           mal_id: 2,
           images: {
-            jpg: {
+            webp: {
               image_url: "",
             },
           },

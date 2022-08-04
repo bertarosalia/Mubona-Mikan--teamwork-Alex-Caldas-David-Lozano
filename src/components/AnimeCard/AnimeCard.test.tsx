@@ -7,7 +7,7 @@ describe("Given an AnimeCard component", () => {
   const testArray = {
     mal_id: 111,
     images: {
-      jpg: {
+      webp: {
         image_url: `images/testAnimeImage.png`,
       },
     },
@@ -23,8 +23,8 @@ describe("Given an AnimeCard component", () => {
   };
   const testButtonText = "Add";
 
-  describe("When it recieves props from animeInfo", () => {
-    test("Then it should return an image with props title as alternative text", () => {
+  describe("When it recieves an anime information", () => {
+    test("Then it should show an image with 'Title test anime' as alternative text", () => {
       render(<AnimeCard animeInfo={testArray} />);
 
       const testCard = screen.getByRole("img", {
@@ -34,7 +34,7 @@ describe("Given an AnimeCard component", () => {
       expect(testCard).toBeInTheDocument();
     });
 
-    test("Then title given by props must be h3", () => {
+    test("Then is should show 'Title test anime' in a heading", () => {
       render(<AnimeCard animeInfo={testArray} />);
 
       const testCardHeading = screen.getByRole("heading", {

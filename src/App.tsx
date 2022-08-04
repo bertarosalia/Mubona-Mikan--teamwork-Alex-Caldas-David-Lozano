@@ -17,8 +17,8 @@ function App() {
 
   return (
     <>
-      <Header />
       {isModalShowing && <Modal message={message} type={type} />}
+      <Header />
       <Navigation />
       {isLoading && <Loading />}
 
