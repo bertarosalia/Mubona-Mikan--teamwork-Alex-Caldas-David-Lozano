@@ -8,6 +8,17 @@ const NavigationStyled = styled.section`
     gap: 2rem;
   }
 
+  .list-animes__links {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    text-decoration: none;
+    color: #e5c185;
+  }
+
   .navigation-anime {
     display: flex;
     background-color: #74a892;
