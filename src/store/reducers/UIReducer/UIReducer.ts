@@ -1,5 +1,6 @@
 import {
   ActionUI,
+  ShowModalUI,
   TestingActionUI,
 } from "../../../types/actionTypesUI/actionsUI";
 import { UIState } from "../../../types/interfaces";
@@ -16,6 +17,20 @@ const UIReducer = (
       break;
     case "closeLoading":
       newUI = { ...currentUI, isLoading: false };
+      break;
+    case "showModal":
+      newUI = {
+        ...currentUI,
+        isModalShowing: true,
+        message: (action as ShowModalUI).payload.message,
+        type: (action as ShowModalUI).payload.isPositive,
+      };
+      break;
+    case "closeModal":
+      newUI = {
+        ...currentUI,
+        isModalShowing: false,
+      };
       break;
     default:
       newUI = { ...currentUI };
