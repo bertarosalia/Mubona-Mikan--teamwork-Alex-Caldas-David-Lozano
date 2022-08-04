@@ -1,11 +1,13 @@
-import { useContext, useEffect, useReducer, useState } from "react";
-import apiUrlReducer from "../../reducers/apiUrlReducer";
+import { useContext, useEffect, useReducer } from "react";
 import {
   closeLoadingActionCreator,
   showLoadingActionCreator,
 } from "../../actions/actionUI/UIActionsCreator";
-import { AnimeContext, IAnimeContext } from "./AnimeContext";
+import { AnimeContext } from "./AnimeContext";
 import { UIContext } from "../UIContext/UIContext";
+import { AnimeInfo } from "../../../types/interfaces";
+import animeReducer from "../../reducers/animeReducer/animeReducer";
+import { loadAnimeListActionCreator } from "../../actions/actionAnime/animeActionsCreator";
 
 interface AnimeContextProviderProps {
   children: JSX.Element | JSX.Element[];
@@ -14,26 +16,29 @@ interface AnimeContextProviderProps {
 const AnimeContextProvider = ({
   children,
 }: AnimeContextProviderProps): JSX.Element => {
-  const [currentPage, dispatch] = useReducer(apiUrlReducer, 1);
   const { UIdispatch } = useContext(UIContext);
 
-  const animeInfoTest: IAnimeContext = {
-    animeListInfo: {
-      pagination: {
-        has_next_page: false,
-        current_page: -1,
-        items: {
-          count: 0,
-          total: 666,
-        },
+  const animeInitialInfo: AnimeInfo = {
+    pagination: {
+      has_next_page: false,
+      current_page: -1,
+      items: {
+        count: 0,
+        total: 666,
       },
-      data: [],
     },
-    dispatch: dispatch,
+    data: [],
   };
 
-  const [animeListInfo, setAnimeInfo] = useState(animeInfoTest.animeListInfo);
-  const apiURL = `https://api.jikan.moe/v4/top/anime?limit=10&page=${currentPage}`;
+  const [animeListInfo, dispatchAnime] = useReducer(
+    animeReducer,
+    animeInitialInfo
+  );
+  const {
+    pagination: { current_page },
+  } = animeListInfo;
+
+  const apiURL = `https://api.jikan.moe/v4/top/anime?limit=10&page=${current_page}`;
 
   useEffect(() => {
     const loadAnimeApi = async () => {
@@ -41,13 +46,13 @@ const AnimeContextProvider = ({
       const response = await fetch(apiURL);
       const animeApiInfo = await response.json();
       UIdispatch(closeLoadingActionCreator());
-      setAnimeInfo(animeApiInfo);
+      dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
     };
     loadAnimeApi();
   }, [UIdispatch, apiURL]);
 
   return (
-    <AnimeContext.Provider value={{ animeListInfo, dispatch }}>
+    <AnimeContext.Provider value={{ animeListInfo, dispatchAnime }}>
       {children}
     </AnimeContext.Provider>
   );
