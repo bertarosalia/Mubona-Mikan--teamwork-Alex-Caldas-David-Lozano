@@ -6,7 +6,7 @@ describe("Given an AnimeCard component", () => {
     const testArray = {
       mal_id: 111,
       images: {
-        jpg: {
+        webp: {
           image_url: `images/testAnimeImage.png`,
         },
       },

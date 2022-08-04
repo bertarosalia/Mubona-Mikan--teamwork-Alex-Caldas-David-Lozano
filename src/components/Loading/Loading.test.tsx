@@ -4,12 +4,10 @@ import Loading from "./Loading";
 describe("Given a Loading component", () => {
   describe("When it's instantiated", () => {
     test("Then it should show a gif", () => {
-      const imageAlt = "Mandarin dancing, loading";
+      const imageTitle = "Mandarin dancing";
       render(<Loading />);
 
-      const test = screen.getByRole("img", {
-        name: imageAlt,
-      });
+      const test = screen.getByTitle(imageTitle);
 
       expect(test).toBeInTheDocument();
     });

@@ -3,7 +3,12 @@ import LoadingStyled from "./LoadingStyled";
 const Loading = (): JSX.Element => {
   return (
     <LoadingStyled>
-      <img src="./images/loading.gif" alt="Mandarin dancing, loading"></img>
+      <video
+        src="./images/loading.mp4"
+        title="Mandarin dancing"
+        autoPlay
+        loop
+      ></video>
       <span>Loading...</span>
     </LoadingStyled>
   );
