@@ -1,1 +1,4 @@
-export type ActionTypeAnime = "loadAnimeList" | "nextAnimePage";
+export type ActionTypeAnime =
+  | "loadAnimeList"
+  | "nextAnimePage"
+  | "previousAnimePage";

@@ -20,3 +20,4 @@ export interface loadAnimeListAction extends ActionAnime {
 export interface NextAnimePageAction extends ActionAnime {
   payload: boolean;
 }
+export interface PreviousAnimePageAction extends ActionAnime {}
