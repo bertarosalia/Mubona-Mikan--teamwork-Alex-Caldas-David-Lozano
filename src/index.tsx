@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AnimeContextProvider from "./store/contexts/animeContext/AnimeContextProvider";
 import UIContextProvider from "./store/contexts/UIContext/UIContextProvider";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <UIContextProvider>
       <AnimeContextProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </AnimeContextProvider>
     </UIContextProvider>
   </React.StrictMode>

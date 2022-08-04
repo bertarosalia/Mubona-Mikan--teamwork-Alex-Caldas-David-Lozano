@@ -5,11 +5,11 @@ import Button from "../Button/Button";
 import AnimeCardListStyled from "./AnimeCardListStyled";
 import {
   nextAnimePageActionCreator,
-  previousAnimePageCreator,
-} from "../../store/actions/apiUrlActionCreator";
+  previousAnimePageActionCreator,
+} from "../../store/actions/actionAnime/animeActionsCreator";
 
 const AnimeCardList = () => {
-  const { animeListInfo, dispatch } = useContext(AnimeContext);
+  const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
   const { data: animesList } = animeListInfo;
   const {
     pagination: { current_page },
@@ -37,7 +37,7 @@ const AnimeCardList = () => {
         <Button
           text="Previous"
           actionOnClick={() => {
-            dispatch(previousAnimePageCreator());
+            dispatchAnime(previousAnimePageActionCreator());
           }}
         />
         <span className="animeListCard__numberPage">{`${
@@ -46,7 +46,7 @@ const AnimeCardList = () => {
         <Button
           text="Next"
           actionOnClick={() => {
-            dispatch(nextAnimePageActionCreator(true));
+            dispatchAnime(nextAnimePageActionCreator(true));
           }}
         />
       </div>

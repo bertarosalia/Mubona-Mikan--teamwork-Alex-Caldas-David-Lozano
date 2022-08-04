@@ -1,0 +1,23 @@
+import { AnimeInfo } from "../interfaces";
+import { ActionTypeAnime } from "./actionsTypesAnime";
+
+export interface AnyActionAnime {
+  type: any;
+}
+
+export interface ActionAnime extends AnyActionAnime {
+  type: ActionTypeAnime;
+}
+
+export interface TestingActionAnime extends AnyActionAnime {
+  type: string;
+}
+
+export interface loadAnimeListAction extends ActionAnime {
+  payload: AnimeInfo;
+}
+
+export interface NextAnimePageAction extends ActionAnime {
+  payload: boolean;
+}
+export interface PreviousAnimePageAction extends ActionAnime {}
