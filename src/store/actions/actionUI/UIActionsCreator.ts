@@ -1,7 +1,7 @@
 import {
   CloseLoadingUI,
   ShowLoadingUI,
-} from "../../../../types/actionTypesUI/actionsUI";
+} from "../../../types/actionTypesUI/actionsUI";
 
 export const showLoadingActionCreator = (): ShowLoadingUI => ({
   type: "showLoading",

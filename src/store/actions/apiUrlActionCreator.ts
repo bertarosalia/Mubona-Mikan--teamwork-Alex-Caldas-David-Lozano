@@ -1,7 +1,7 @@
 import {
   NextAnimePageAction,
   PreviousAnimePageAction,
-} from "../../../types/actions";
+} from "../../types/actions";
 
 export const nextAnimePageActionCreator = (
   isNextPage: boolean

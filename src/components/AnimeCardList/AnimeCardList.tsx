@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { AnimeContext } from "../../store/contexts/AnimeContext";
+import { AnimeContext } from "../../store/contexts/animeContext/AnimeContext";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import Button from "../Button/Button";
 import AnimeCardListStyled from "./AnimeCardListStyled";
 import {
   nextAnimePageActionCreator,
   previousAnimePageCreator,
-} from "../../store/contexts/actions/apiUrlActionCreator";
+} from "../../store/actions/apiUrlActionCreator";
 
 const AnimeCardList = () => {
   const { animeListInfo, dispatch } = useContext(AnimeContext);
