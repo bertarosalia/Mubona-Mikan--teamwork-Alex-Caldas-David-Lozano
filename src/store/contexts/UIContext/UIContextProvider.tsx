@@ -12,6 +12,9 @@ const UIContextProvider = ({
 }: UIContextProviderProps): JSX.Element => {
   const initialUI: UIState = {
     isLoading: false,
+    isModalShowing: false,
+    message: "",
+    type: false,
   };
 
   const [UIInfo, dispatchUI] = useReducer(UIReducer, initialUI);

@@ -1,12 +1,19 @@
 import Button from "../Button/Button";
 import AnimeCardStyled from "./AnimeCardStyled";
 import { AnimeData } from "../../types/interfaces";
+import {
+  showModalActionCreator,
+  closeModalActionCreator,
+} from "../../store/actions/actionUI/UIActionsCreator";
+import { useContext } from "react";
+import { UIContext } from "../../store/contexts/UIContext/UIContext";
 
 interface AnimeCardProps {
   animeInfo: AnimeData;
 }
 
 const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
+  const { UIdispatch } = useContext(UIContext);
   return (
     <AnimeCardStyled>
       <div className="animeCard_image-frame">
@@ -19,7 +26,17 @@ const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
             <span>Type: {animeInfo.type}</span>
             <span>Episodes: {animeInfo.episodes}</span>
           </div>
-          <Button text="Add" actionOnClick={() => console.log("clicked")} />
+          <Button
+            text="Add"
+            actionOnClick={() => {
+              UIdispatch(
+                showModalActionCreator(true, "Anime added to your list")
+              );
+              setTimeout(() => {
+                UIdispatch(closeModalActionCreator());
+              }, 2000);
+            }}
+          />
         </div>
       </div>
     </AnimeCardStyled>
