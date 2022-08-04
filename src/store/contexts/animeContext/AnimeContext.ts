@@ -1,6 +1,6 @@
 import { createContext, Dispatch } from "react";
-import { Action, TestingAction } from "../../types/actions";
-import { AnimeInfo } from "../../types/interfaces";
+import { Action, TestingAction } from "../../../types/actions";
+import { AnimeInfo } from "../../../types/interfaces";
 
 export interface IAnimeContext {
   animeListInfo: AnimeInfo;

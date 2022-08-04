@@ -1,11 +1,11 @@
 import { useContext, useEffect, useReducer, useState } from "react";
-import apiUrlReducer from "../reducers/apiUrlReducer";
+import apiUrlReducer from "../../reducers/apiUrlReducer";
 import {
   closeLoadingActionCreator,
   showLoadingActionCreator,
-} from "./actions/actionUI/UIActionsCreator";
+} from "../../actions/actionUI/UIActionsCreator";
 import { AnimeContext, IAnimeContext } from "./AnimeContext";
-import { UIContext } from "./UIContext/UIContext";
+import { UIContext } from "../UIContext/UIContext";
 
 interface AnimeContextProviderProps {
   children: JSX.Element | JSX.Element[];

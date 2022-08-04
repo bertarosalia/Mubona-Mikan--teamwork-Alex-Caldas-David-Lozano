@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { AnimeContext, IAnimeContext } from "../../store/contexts/AnimeContext";
+import {
+  AnimeContext,
+  IAnimeContext,
+} from "../../store/contexts/animeContext/AnimeContext";
 import AnimeCardList from "./AnimeCardList";
 
 describe("Given a AnimeCardList", () => {
