@@ -6,10 +6,9 @@ export interface ModalProps {
 }
 
 const Modal = ({ type, message }: ModalProps): JSX.Element => {
-  const style = type ? "positive" : "negative";
   return (
     <ModalStyled>
-      <span className={style}>{message}</span>
+      <span className={type ? "positive" : "negative"}>{message}</span>
     </ModalStyled>
   );
 };
