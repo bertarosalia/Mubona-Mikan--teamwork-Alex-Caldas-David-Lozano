@@ -142,7 +142,7 @@ describe("Given the animeReducer function", () => {
     });
   });
 
-  describe("When it's instantiated with an animeInfoList and action 'nextAnimeList' and payload with another animeInfoList", () => {
+  describe("When it's instantiated with an animeInfoList and action 'patatasfritas' and payload with another animeInfoList", () => {
     test("Then should return a new anime info list same equal than payload", () => {
       const actionType = "patatasfritas";
       const previousAnimeInfoList = {
