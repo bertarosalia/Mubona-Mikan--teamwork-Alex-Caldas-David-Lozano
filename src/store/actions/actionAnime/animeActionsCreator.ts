@@ -1,6 +1,7 @@
 import {
   loadAnimeListAction,
   NextAnimePageAction,
+  PreviousAnimePageAction,
 } from "../../../types/actionTypesAnime/actionsAnime";
 import { AnimeInfo } from "../../../types/interfaces";
 
@@ -16,4 +17,8 @@ export const nextAnimePageActionCreator = (
 ): NextAnimePageAction => ({
   type: "nextAnimePage",
   payload: isNextPage,
+});
+
+export const previousAnimePageActionCreator = (): PreviousAnimePageAction => ({
+  type: "previousAnimePage",
 });
