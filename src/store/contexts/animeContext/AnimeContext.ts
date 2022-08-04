@@ -1,10 +1,13 @@
 import { createContext, Dispatch } from "react";
-import { Action, TestingAction } from "../../../types/actions";
+import {
+  ActionAnime,
+  TestingActionAnime,
+} from "../../../types/actionTypesAnime/actionsAnime";
 import { AnimeInfo } from "../../../types/interfaces";
 
 export interface IAnimeContext {
   animeListInfo: AnimeInfo;
-  dispatch: Dispatch<Action | TestingAction>;
+  dispatchAnime: Dispatch<ActionAnime | TestingActionAnime>;
 }
 
 export const AnimeContext = createContext<IAnimeContext>({
@@ -19,5 +22,5 @@ export const AnimeContext = createContext<IAnimeContext>({
     },
     data: [],
   },
-  dispatch: () => {},
+  dispatchAnime: () => {},
 });

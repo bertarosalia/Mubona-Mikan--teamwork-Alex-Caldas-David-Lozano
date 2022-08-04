@@ -56,7 +56,7 @@ describe("Given a AnimeCardList", () => {
         },
       ],
     },
-    dispatch: mockFunction,
+    dispatchAnime: mockFunction,
   };
 
   describe("When it's rendered", () => {
