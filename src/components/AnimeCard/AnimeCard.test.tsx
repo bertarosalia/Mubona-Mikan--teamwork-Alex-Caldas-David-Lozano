@@ -1,26 +1,29 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { UIContext } from "../../store/contexts/UIContext/UIContext";
 import AnimeCard from "./AnimeCard";
 
 describe("Given an AnimeCard component", () => {
-  describe("When it recieves props from animeInfo", () => {
-    const testArray = {
-      mal_id: 111,
-      images: {
-        jpg: {
-          image_url: `images/testAnimeImage.png`,
-        },
+  const testArray = {
+    mal_id: 111,
+    images: {
+      jpg: {
+        image_url: `images/testAnimeImage.png`,
       },
-      title: "Title test anime",
-      type: "Type test anime",
-      episodes: 222,
-      duration: " 333",
-      rating: "Rating test anime",
-      score: 444,
-      synopsis: "pasan cosas que cosas pasan",
-      year: 555,
-      genres: [],
-    };
+    },
+    title: "Title test anime",
+    type: "Type test anime",
+    episodes: 222,
+    duration: " 333",
+    rating: "Rating test anime",
+    score: 444,
+    synopsis: "pasan cosas que cosas pasan",
+    year: 555,
+    genres: [],
+  };
+  const testButtonText = "Add";
 
+  describe("When it recieves props from animeInfo", () => {
     test("Then it should return an image with props title as alternative text", () => {
       render(<AnimeCard animeInfo={testArray} />);
 
@@ -41,8 +44,7 @@ describe("Given an AnimeCard component", () => {
       expect(testCardHeading).toHaveTextContent(testArray.title);
     });
 
-    test("Then it should always show an 'Add' button inside AnimeCard", () => {
-      const testButtonText = "Add";
+    test("Then it should show an 'Add' button inside AnimeCard", () => {
       render(<AnimeCard animeInfo={testArray} />);
 
       const testCardButton = screen.getByRole("button", {
@@ -50,6 +52,33 @@ describe("Given an AnimeCard component", () => {
       });
 
       expect(testCardButton).toHaveTextContent(testButtonText);
+    });
+  });
+
+  describe("When user click on 'Add' button", () => {
+    test("Then it call the action assigned", () => {
+      const mockActionOnClick = jest.fn();
+      const initialUI = {
+        isLoading: false,
+        isModalShowing: false,
+        message: "",
+        type: false,
+      };
+
+      render(
+        <UIContext.Provider
+          value={{ ui: initialUI, UIdispatch: mockActionOnClick }}
+        >
+          <AnimeCard animeInfo={testArray} />
+        </UIContext.Provider>
+      );
+
+      const button = screen.getByRole("button", {
+        name: testButtonText,
+      });
+      userEvent.click(button);
+
+      expect(mockActionOnClick).toBeCalled();
     });
   });
 });
