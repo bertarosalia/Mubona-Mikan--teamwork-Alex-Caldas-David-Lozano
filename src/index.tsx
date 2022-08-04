@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import AnimeContextProvider from "./store/contexts/animeContext/AnimeContextProvider";
 import UIContextProvider from "./store/contexts/UIContext/UIContextProvider";
 import { BrowserRouter } from "react-router-dom";
+import "@fontsource/roboto";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
