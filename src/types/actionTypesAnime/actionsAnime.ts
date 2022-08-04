@@ -13,7 +13,7 @@ export interface TestingActionAnime extends AnyActionAnime {
   type: string;
 }
 
-export interface loadAnimeListAction extends ActionAnime {
+export interface LoadAnimeListAction extends ActionAnime {
   payload: AnimeInfo;
 }
 

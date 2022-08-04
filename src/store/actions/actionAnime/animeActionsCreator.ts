@@ -1,5 +1,5 @@
 import {
-  loadAnimeListAction,
+  LoadAnimeListAction,
   NextAnimePageAction,
   PreviousAnimePageAction,
 } from "../../../types/actionTypesAnime/actionsAnime";
@@ -7,7 +7,7 @@ import { AnimeInfo } from "../../../types/interfaces";
 
 export const loadAnimeListActionCreator = (
   animeList: AnimeInfo
-): loadAnimeListAction => ({
+): LoadAnimeListAction => ({
   type: "loadAnimeList",
   payload: animeList,
 });
