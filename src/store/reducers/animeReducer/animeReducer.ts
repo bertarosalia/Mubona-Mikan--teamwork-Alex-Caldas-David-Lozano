@@ -1,5 +1,6 @@
 import {
   ActionAnime,
+  loadAnimeListAction,
   TestingActionAnime,
 } from "../../../types/actionTypesAnime/actionsAnime";
 import { AnimeInfo } from "../../../types/interfaces";
@@ -11,6 +12,9 @@ const animeReducer = (
   let newAnimeInfo: AnimeInfo;
 
   switch ((action as ActionAnime).type) {
+    case "loadAnimeList":
+      newAnimeInfo = { ...(action as loadAnimeListAction).payload };
+      break;
     case "nextAnimePage":
       newAnimeInfo = {
         ...currentAnimeInfo,
