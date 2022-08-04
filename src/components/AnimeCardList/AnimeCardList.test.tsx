@@ -4,6 +4,7 @@ import {
   AnimeContext,
   IAnimeContext,
 } from "../../store/contexts/animeContext/AnimeContext";
+import AnimeContextProvider from "../../store/contexts/animeContext/AnimeContextProvider";
 import AnimeCardList from "./AnimeCardList";
 
 describe("Given a AnimeCardList", () => {
@@ -63,7 +64,11 @@ describe("Given a AnimeCardList", () => {
     test("Then should show 'Anime' in heading level 2", () => {
       const title = "Anime";
 
-      render(<AnimeCardList />);
+      render(
+        <AnimeContextProvider>
+          <AnimeCardList />
+        </AnimeContextProvider>
+      );
 
       const heading = screen.getByRole("heading", {
         name: title,
