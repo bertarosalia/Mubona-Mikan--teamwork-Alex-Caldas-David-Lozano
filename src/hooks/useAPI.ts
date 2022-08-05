@@ -12,9 +12,7 @@ const useAPI = () => {
   const { UIdispatch } = useContext(UIContext);
   const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
 
-  const apiURL = `${process.env.REACT_APP_API_URL as string}&page=${
-    animeListInfo.pagination.current_page
-  }`;
+  const apiURL = `${process.env.REACT_APP_API_URL as string}?page=0&limit=12`;
 
   const jikanAPI = useCallback(async () => {
     UIdispatch(showLoadingActionCreator());
