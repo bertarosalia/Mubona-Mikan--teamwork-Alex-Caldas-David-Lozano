@@ -1,13 +1,7 @@
-import { useContext, useEffect, useReducer } from "react";
-import {
-  closeLoadingActionCreator,
-  showLoadingActionCreator,
-} from "../../actions/actionUI/UIActionsCreator";
+import { useReducer } from "react";
 import { AnimeContext } from "./AnimeContext";
-import { UIContext } from "../UIContext/UIContext";
 import { AnimeInfo } from "../../../types/interfaces";
 import animeReducer from "../../reducers/animeReducer/animeReducer";
-import { loadAnimeListActionCreator } from "../../actions/actionAnime/animeActionsCreator";
 
 interface AnimeContextProviderProps {
   children: JSX.Element | JSX.Element[];
@@ -16,8 +10,6 @@ interface AnimeContextProviderProps {
 const AnimeContextProvider = ({
   children,
 }: AnimeContextProviderProps): JSX.Element => {
-  const { UIdispatch } = useContext(UIContext);
-
   const animeInitialInfo: AnimeInfo = {
     pagination: {
       has_next_page: false,
@@ -34,24 +26,6 @@ const AnimeContextProvider = ({
     animeReducer,
     animeInitialInfo
   );
-  const {
-    pagination: { current_page },
-  } = animeListInfo;
-
-  const apiURL = `${
-    process.env.REACT_APP_API_URL as string
-  }&page=${current_page}`;
-
-  useEffect(() => {
-    const loadAnimeApi = async () => {
-      UIdispatch(showLoadingActionCreator());
-      const response = await fetch(apiURL);
-      const animeApiInfo = await response.json();
-      UIdispatch(closeLoadingActionCreator());
-      dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
-    };
-    loadAnimeApi();
-  }, [UIdispatch, apiURL]);
 
   return (
     <AnimeContext.Provider value={{ animeListInfo, dispatchAnime }}>

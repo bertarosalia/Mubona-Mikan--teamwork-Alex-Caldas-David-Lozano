@@ -7,6 +7,7 @@ import {
   nextAnimePageActionCreator,
   previousAnimePageActionCreator,
 } from "../../store/actions/actionAnime/animeActionsCreator";
+import useAPI from "../../hooks/useAPI";
 
 const AnimeCardList = () => {
   const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
@@ -25,6 +26,10 @@ const AnimeCardList = () => {
     },
   } = animeListInfo;
 
+  const { jikanAPI } = useAPI();
+
+  jikanAPI();
+  debugger;
   return (
     <AnimeCardListStyled>
       <h2 className="animeListCard__title">Anime</h2>
