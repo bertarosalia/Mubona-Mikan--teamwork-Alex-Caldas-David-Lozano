@@ -1,10 +1,7 @@
 import Button from "../Button/Button";
 import AnimeCardStyled from "./AnimeCardStyled";
 import { AnimeData } from "../../types/interfaces";
-import {
-  showModalActionCreator,
-  closeModalActionCreator,
-} from "../../store/actions/actionUI/UIActionsCreator";
+import { showModalActionCreator } from "../../store/actions/actionUI/UIActionsCreator";
 import { useContext } from "react";
 import { UIContext } from "../../store/contexts/UIContext/UIContext";
 
@@ -37,9 +34,6 @@ const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
               UIdispatch(
                 showModalActionCreator(true, "Anime added to your list")
               );
-              setTimeout(() => {
-                UIdispatch(closeModalActionCreator());
-              }, 2000);
             }}
           />
         </div>
