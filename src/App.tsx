@@ -23,8 +23,6 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<AnimesPage />} />
-        <Route path="/home-page" element={<AnimesPage />} />
-
         <Route path="/animes" element={<AnimesPage />} />
         <Route path="/my-list" element={<MyListPage />} />
         <Route path="*" element={<NotFoundPage />} />

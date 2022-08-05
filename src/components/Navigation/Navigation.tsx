@@ -6,11 +6,6 @@ const Navigation = (): JSX.Element => (
     <nav className="navigation-anime">
       <ul className="list-animes">
         <li className="list-animes__links">
-          <NavLink to="/home-page" className={"nav-links"}>
-            Home
-          </NavLink>
-        </li>
-        <li className="list-animes__links">
           <NavLink to="/animes" className={"nav-links"}>
             Animes
           </NavLink>
