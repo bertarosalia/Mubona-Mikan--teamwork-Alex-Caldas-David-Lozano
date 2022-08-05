@@ -56,7 +56,9 @@
       "!src/index.tsx",
       "!src/reportWebVitals.ts",
       "!src/react-app-env.d.ts",
-      "!src/App.tsx"
+      "!src/App.tsx",
+      "!src/store/contexts/animeContext/AnimeContext.ts",
+      "!src/store/contexts/UIContext/UIContext.ts"
     ]
   }
 }
