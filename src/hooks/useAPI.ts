@@ -12,20 +12,21 @@ const useAPI = () => {
   const { UIdispatch } = useContext(UIContext);
   const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
 
-  const apiURL = `${process.env.REACT_APP_API_URL as string}?page=0&limit=12`;
+  const jikanAPI = useCallback(
+    async (apiURL: string) => {
+      UIdispatch(showLoadingActionCreator());
 
-  const jikanAPI = useCallback(async () => {
-    UIdispatch(showLoadingActionCreator());
-
-    try {
-      const response = await fetch(apiURL);
-      const animeApiInfo = await response.json();
-      UIdispatch(closeLoadingActionCreator());
-      dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
-    } catch (error) {
-      UIdispatch(showModalActionCreator(false, error as string));
-    }
-  }, [UIdispatch, apiURL, dispatchAnime]);
+      try {
+        const response = await fetch(apiURL);
+        const animeApiInfo = await response.json();
+        UIdispatch(closeLoadingActionCreator());
+        dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
+      } catch (error) {
+        UIdispatch(showModalActionCreator(false, error as string));
+      }
+    },
+    [UIdispatch, dispatchAnime]
+  );
 
   return { jikanAPI, animeListInfo };
 };

@@ -13,9 +13,9 @@ const mockResponseError = {
 export const handlers = [
   rest.get(`${apiUrl}`, (req, res, ctx) => {
     const queryParamPage = req.url.searchParams.get("page");
-    if ((queryParamPage as string) >= "0") {
+    if (queryParamPage === "0") {
       return res(ctx.status(200), ctx.json(mockResponse));
     }
-    return res(ctx.status(400), ctx.json(mockResponseError));
+    return res(ctx.status(500), ctx.json(mockResponseError));
   }),
 ];
