@@ -15,6 +15,7 @@ const AnimeCardList = () => {
   useEffect(() => {
     jikanAPI();
   }, [jikanAPI]);
+
   const { dispatchAnime } = useContext(AnimeContext);
   const { data: animesList } = animeListInfo;
   const {
