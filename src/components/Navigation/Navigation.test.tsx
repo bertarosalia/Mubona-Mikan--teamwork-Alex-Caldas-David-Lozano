@@ -20,33 +20,33 @@ describe("Given a Navigation component", () => {
     });
 
     test("Then it should show a 'Animes' text inside the nav bar", () => {
-      const navLinkText = "Animes";
+      const animeNav = "Animes";
 
       render(
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
       );
-      const expectedNavLinkText = screen.getByRole("link", {
-        name: navLinkText,
+      const expectedAnimeNav = screen.getByRole("link", {
+        name: animeNav,
       });
 
-      expect(expectedNavLinkText).toBeInTheDocument();
+      expect(expectedAnimeNav).toBeInTheDocument();
     });
 
     test("Then it should show a 'My list' text inside the nav bar", () => {
-      const navLinkText = "My List";
+      const myListText = "My List";
 
       render(
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
       );
-      const expectedNavLinkText = screen.getByRole("link", {
-        name: navLinkText,
+      const expectedMyListText = screen.getByRole("link", {
+        name: myListText,
       });
 
-      expect(expectedNavLinkText).toBeInTheDocument();
+      expect(expectedMyListText).toBeInTheDocument();
     });
   });
 });
