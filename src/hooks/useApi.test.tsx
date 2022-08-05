@@ -12,8 +12,8 @@ const testAnimeWrapper = ({ children }: testAnimeWrapperProps) => (
 
 describe("Given the useApi hook", () => {
   describe("When it's instantiated first time", () => {
-    test("The anime info returned have a current page '1'", async () => {
-      const expectedCurrentPageFinal = 1;
+    test("The anime info must return '{pruebaguay: 'Bien!}'", async () => {
+      const expectedResponse = { pruebaguay: "Bien!" };
 
       const { result } = renderHook(useAPI, {
         wrapper: testAnimeWrapper,
@@ -22,7 +22,7 @@ describe("Given the useApi hook", () => {
       result.current.jikanAPI();
 
       await waitFor(() => {
-        expect(result.current.animeListInfo).toBe(expectedCurrentPageFinal);
+        expect(result.current.animeListInfo).toEqual(expectedResponse);
       });
     });
   });

@@ -59,7 +59,9 @@
       "!src/react-app-env.d.ts",
       "!src/App.tsx",
       "!src/store/contexts/animeContext/AnimeContext.ts",
-      "!src/store/contexts/UIContext/UIContext.ts"
+      "!src/store/contexts/UIContext/UIContext.ts",
+      "!src/setupTests.ts",
+      "!src/mocks/handlers.ts"
     ]
   }
 }
