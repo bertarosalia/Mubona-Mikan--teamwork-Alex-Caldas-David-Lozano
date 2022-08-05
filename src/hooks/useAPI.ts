@@ -10,16 +10,11 @@ import { UIContext } from "../store/contexts/UIContext/UIContext";
 
 const useAPI = () => {
   const { UIdispatch } = useContext(UIContext);
-  const {
-    animeListInfo: {
-      pagination: { current_page },
-    },
-    dispatchAnime,
-  } = useContext(AnimeContext);
+  const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
 
-  const apiURL = `${
-    process.env.REACT_APP_API_URL as string
-  }&page=${current_page}`;
+  const apiURL = `${process.env.REACT_APP_API_URL as string}&page=${
+    animeListInfo.pagination.current_page
+  }`;
 
   const jikanAPI = useCallback(async () => {
     UIdispatch(showLoadingActionCreator());
@@ -34,21 +29,7 @@ const useAPI = () => {
     }
   }, [UIdispatch, apiURL, dispatchAnime]);
 
-  return { jikanAPI };
+  return { jikanAPI, animeListInfo };
 };
 
 export default useAPI;
-/* 
-  const { UIdispatch } = useContext(UIContext);
-
-  const apiURL = `${
-    process.env.REACT_APP_API_URL as string
-  }&page=${current_page}`;
-
-  useEffect(() => {
-    const loadAnimeApi = async () => {
-      UIdispatch(showLoadingActionCreator());
-      
-    };
-    loadAnimeApi();
-  }, [UIdispatch, apiURL]); */

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AnimeContext } from "../../store/contexts/animeContext/AnimeContext";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import Button from "../Button/Button";
@@ -10,7 +10,12 @@ import {
 import useAPI from "../../hooks/useAPI";
 
 const AnimeCardList = () => {
-  const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
+  const { jikanAPI, animeListInfo } = useAPI();
+
+  useEffect(() => {
+    jikanAPI();
+  }, [jikanAPI]);
+  const { dispatchAnime } = useContext(AnimeContext);
   const { data: animesList } = animeListInfo;
   const {
     pagination: { current_page },
@@ -26,10 +31,6 @@ const AnimeCardList = () => {
     },
   } = animeListInfo;
 
-  const { jikanAPI } = useAPI();
-
-  jikanAPI();
-  debugger;
   return (
     <AnimeCardListStyled>
       <h2 className="animeListCard__title">Anime</h2>
