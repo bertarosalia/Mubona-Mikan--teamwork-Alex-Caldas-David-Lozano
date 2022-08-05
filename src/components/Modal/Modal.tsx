@@ -1,5 +1,4 @@
 import ModalStyled from "./ModalStyled";
-
 export interface ModalProps {
   message: string;
   type: boolean;
