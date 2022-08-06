@@ -1,6 +1,7 @@
 import { renderHook, waitFor } from "@testing-library/react";
+
 import AnimeContextProvider from "../store/contexts/AnimeContext/AnimeContextProvider";
-import { UIContext } from "../store/contexts/UIContext/UIContext";
+
 import useAPI from "./useAPI";
 
 interface TestAnimeWrapperProps {
@@ -32,28 +33,15 @@ describe("Given the useApi hook", () => {
   describe("When it's instantiated with url and param 'page=aasadasda'", () => {
     test("Then should call the mocked dispatch", async () => {
       const apiURL = `${process.env.REACT_APP_API_URL as string}?page=asadasda`;
-      const mockedDispatch = jest.fn();
-      const ui = {
-        isLoading: false,
-        isModalShowing: false,
-        message: "",
-        type: false,
-      };
-
-      const testAnimeMockedWrapper = ({ children }: TestAnimeWrapperProps) => (
-        <UIContext.Provider value={{ ui, UIdispatch: mockedDispatch }}>
-          {children}
-        </UIContext.Provider>
-      );
+      const mockDispatch = jest.fn();
 
       const { result } = renderHook(useAPI, {
-        wrapper: testAnimeMockedWrapper,
+        wrapper: testAnimeWrapper,
       });
-
-      result.current.jikanAPI(apiURL);
+      result.current.jikanAPI(apiURL, mockDispatch);
 
       await waitFor(() => {
-        expect(mockedDispatch).toBeCalled();
+        expect(mockDispatch).toBeCalled();
       });
     });
   });

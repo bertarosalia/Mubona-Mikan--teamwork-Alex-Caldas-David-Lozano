@@ -1,4 +1,4 @@
-import { AnimeData, AnimeInfo, AnimeLocalData } from "../interfaces";
+import { AnimeInfo, AnimeLocalData } from "../interfaces";
 import { ActionTypeAnime } from "./actionsTypesAnime";
 
 export interface AnyActionAnime {
