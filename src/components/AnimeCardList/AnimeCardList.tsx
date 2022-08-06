@@ -12,9 +12,12 @@ import useAPI from "../../hooks/useAPI";
 const AnimeCardList = () => {
   const { jikanAPI, animeListInfo } = useAPI();
 
+  const urlAPI = `${process.env.REACT_APP_API_URL as string}?page=${
+    animeListInfo.pagination.current_page
+  }&limit=12`;
   useEffect(() => {
-    jikanAPI();
-  }, [jikanAPI]);
+    jikanAPI(urlAPI);
+  }, [jikanAPI, urlAPI]);
 
   const { dispatchAnime } = useContext(AnimeContext);
   const { data: animesList } = animeListInfo;
