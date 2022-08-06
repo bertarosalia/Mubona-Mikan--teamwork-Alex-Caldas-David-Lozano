@@ -1,6 +1,7 @@
 import {
   ActionAnime,
   LoadAnimeListAction,
+  LoadLocalAnimeListAction,
   TestingActionAnime,
 } from "../../../types/actionTypesAnime/actionsAnime";
 import { AnimeInfo } from "../../../types/interfaces";
@@ -34,6 +35,12 @@ const animeReducer = (
           ...currentAnimeInfo.pagination,
           current_page: current_page - 1,
         },
+      };
+      break;
+    case "loadLocalAnimeList":
+      newAnimeInfo = {
+        ...currentAnimeInfo,
+        animeLocalData: [...(action as LoadLocalAnimeListAction).payload],
       };
       break;
     default:
