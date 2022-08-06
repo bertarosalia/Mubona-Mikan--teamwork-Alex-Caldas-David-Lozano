@@ -31,7 +31,15 @@ const useAPI = () => {
     [UIdispatch, dispatchAnime]
   );
 
-  return { jikanAPI, animeListInfo };
+  const postLocalAPI = (apiURL: string, animeObject: object) => {
+    fetch(apiURL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ animeObject }),
+    });
+  };
+
+  return { postLocalAPI, jikanAPI, animeListInfo };
 };
 
 export default useAPI;
