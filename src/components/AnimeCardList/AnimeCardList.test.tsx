@@ -56,7 +56,9 @@ describe("Given a AnimeCardList", () => {
           genres: [],
         },
       ],
+      animeLocalData: [],
     },
+
     dispatchAnime: mockFunction,
   };
 

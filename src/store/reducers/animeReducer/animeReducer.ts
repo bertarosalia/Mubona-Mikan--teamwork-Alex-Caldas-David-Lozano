@@ -17,7 +17,10 @@ const animeReducer = (
 
   switch ((action as ActionAnime).type) {
     case "loadAnimeList":
-      newAnimeInfo = { ...(action as LoadAnimeListAction).payload };
+      newAnimeInfo = {
+        ...(action as LoadAnimeListAction).payload,
+        animeLocalData: [],
+      };
       break;
     case "nextAnimePage":
       newAnimeInfo = {

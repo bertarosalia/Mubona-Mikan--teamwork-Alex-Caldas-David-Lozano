@@ -11,6 +11,7 @@ describe("Given the animeReducer function", () => {
       },
     },
     data: [],
+    animeLocalData: [],
   };
 
   describe("When it's instantiated with an animeInfoList and action 'loadAnimeList' and payload with another animeInfoList", () => {
@@ -38,6 +39,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const action = { type: actionType, payload: actionPayload };
@@ -61,6 +63,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const actionPayload = {
@@ -85,6 +88,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const action = { type: actionType, payload: actionPayload };
@@ -108,6 +112,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const actionPayload = {
@@ -132,6 +137,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const action = { type: actionType, payload: actionPayload };
@@ -155,6 +161,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const actionPayload = {
@@ -179,6 +186,7 @@ describe("Given the animeReducer function", () => {
           },
         },
         data: [],
+        animeLocalData: [],
       };
 
       const action = { type: actionType, payload: actionPayload };
