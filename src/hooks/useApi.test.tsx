@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import AnimeContextProvider from "../store/contexts/animeContext/AnimeContextProvider";
+import AnimeContextProvider from "../store/contexts/AnimeContext/AnimeContextProvider";
 import { UIContext } from "../store/contexts/UIContext/UIContext";
 import useAPI from "./useAPI";
 

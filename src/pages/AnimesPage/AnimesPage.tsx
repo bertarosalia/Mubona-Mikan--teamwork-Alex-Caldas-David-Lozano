@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AnimeCardList from "../../components/AnimeCardList/AnimeCardList";
-import { AnimeContext } from "../../store/contexts/animeContext/AnimeContext";
+import { AnimeContext } from "../../store/contexts/AnimeContext/AnimeContext";
 
 const AnimesPage = (): JSX.Element => {
   const { animeListInfo } = useContext(AnimeContext);

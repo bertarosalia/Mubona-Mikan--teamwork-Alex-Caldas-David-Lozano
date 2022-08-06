@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import {
   AnimeContext,
   IAnimeContext,
-} from "../../store/contexts/animeContext/AnimeContext";
-import AnimeContextProvider from "../../store/contexts/animeContext/AnimeContextProvider";
+} from "../../store/contexts/AnimeContext/AnimeContext";
+import AnimeContextProvider from "../../store/contexts/AnimeContext/AnimeContextProvider";
 import AnimeCardList from "./AnimeCardList";
 
 describe("Given a AnimeCardList", () => {

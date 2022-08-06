@@ -5,7 +5,7 @@ import {
   showLoadingActionCreator,
   showModalActionCreator,
 } from "../store/actions/actionUI/UIActionsCreator";
-import { AnimeContext } from "../store/contexts/animeContext/AnimeContext";
+import { AnimeContext } from "../store/contexts/AnimeContext/AnimeContext";
 import { UIContext } from "../store/contexts/UIContext/UIContext";
 
 const useAPI = () => {
