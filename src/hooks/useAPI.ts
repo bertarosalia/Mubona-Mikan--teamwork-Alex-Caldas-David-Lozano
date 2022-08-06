@@ -1,5 +1,8 @@
 import { useCallback, useContext } from "react";
-import { loadAnimeListActionCreator } from "../store/actions/actionAnime/animeActionsCreator";
+import {
+  loadAnimeListActionCreator,
+  loadLocalAnimeListActionCreator,
+} from "../store/actions/actionAnime/animeActionsCreator";
 import {
   closeLoadingActionCreator,
   showLoadingActionCreator,
@@ -31,6 +34,21 @@ const useAPI = () => {
     [UIdispatch, dispatchAnime]
   );
 
+  const getApiLocal = useCallback(
+    async (localApi: string) => {
+      try {
+        UIdispatch(showLoadingActionCreator());
+        const response = await fetch(localApi);
+        const localApiAnime = await response.json();
+        UIdispatch(closeLoadingActionCreator());
+        dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
+      } catch (error) {
+        UIdispatch(showModalActionCreator(false, error as string));
+      }
+    },
+    [UIdispatch, dispatchAnime]
+  );
+
   const postLocalAPI = (apiURL: string, animeObject: object) => {
     fetch(apiURL, {
       method: "POST",
@@ -39,7 +57,7 @@ const useAPI = () => {
     });
   };
 
-  return { postLocalAPI, jikanAPI, animeListInfo };
+  return { postLocalAPI, jikanAPI, animeListInfo, getApiLocal };
 };
 
 export default useAPI;
