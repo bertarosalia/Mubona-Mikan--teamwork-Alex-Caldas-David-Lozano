@@ -18,6 +18,9 @@ const useAPI = () => {
 
       try {
         const response = await fetch(apiURL);
+        if (response.status === 500) {
+          throw new Error();
+        }
         const animeApiInfo = await response.json();
         UIdispatch(closeLoadingActionCreator());
         dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
