@@ -1,4 +1,4 @@
-import { AnimeInfo } from "../interfaces";
+import { AnimeData, AnimeInfo, AnimeLocalData } from "../interfaces";
 import { ActionTypeAnime } from "./actionsTypesAnime";
 
 export interface AnyActionAnime {
@@ -21,3 +21,7 @@ export interface NextAnimePageAction extends ActionAnime {
   payload: boolean;
 }
 export interface PreviousAnimePageAction extends ActionAnime {}
+
+export interface LoadLocalAnimeList extends ActionAnime {
+  payload: AnimeLocalData[];
+}
