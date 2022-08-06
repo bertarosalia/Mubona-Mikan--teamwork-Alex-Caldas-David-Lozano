@@ -5,24 +5,54 @@ const Footer = (): JSX.Element => {
     <FooterStyled>
       <div className="footer__RRSS">
         <a href="https://discord.com/">
-          <img src="./images/iconDiscord.svg" alt="Icono Discord" />
+          <img
+            src="./images/iconDiscord.svg"
+            height="40"
+            width="40"
+            alt="Icono Discord"
+          />
         </a>
         <a href="https://www.facebook.com/">
-          <img src="./images/iconFacebook.svg" alt="Icono Facebook" />
+          <img
+            src="./images/iconFacebook.svg"
+            height="40"
+            width="40"
+            alt="Icono Facebook"
+          />
         </a>
         <a href="https://www.instagram.com/">
-          <img src="./images/iconInstagram.svg" alt="Icono Instagram" />
+          <img
+            src="./images/iconInstagram.svg"
+            height="40"
+            width="40"
+            alt="Icono Instagram"
+          />
         </a>
         <a href="https://twitter.com/">
-          <img src="./images/iconTwitter.svg" alt="Icono Twitter" />
+          <img
+            src="./images/iconTwitter.svg"
+            height="40"
+            width="40"
+            alt="Icono Twitter"
+          />
         </a>
       </div>
       <div className="footer__stores">
         <a href="https://www.apple.com/app-store/   ">
-          <img src="./images/iconAppleStore.svg" alt="Icono Apple Sotre" />
+          <img
+            src="./images/iconAppleStore.svg"
+            height="40"
+            width="140"
+            alt="Icono Apple Sotre"
+          />
         </a>
         <a href="https://play.google.com/store/games">
-          <img src="./images/iconGooglePlay.svg" alt="Icono Google Play" />
+          <img
+            src="./images/iconGooglePlay.svg"
+            height="40"
+            width="140"
+            alt="Icono Google Play"
+          />
         </a>
       </div>
       <p>
