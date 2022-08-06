@@ -6,11 +6,8 @@ export interface ButtonProps {
 }
 
 const Button = ({ text, actionOnClick }: ButtonProps): JSX.Element => {
-  const scrollup = () => {
-    actionOnClick();
-  };
   return (
-    <ButtonStyled className="" onClick={scrollup}>
+    <ButtonStyled className="" onClick={() => actionOnClick()}>
       {text}
     </ButtonStyled>
   );
