@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { Dispatch, useCallback, useContext } from "react";
 import {
   loadAnimeListActionCreator,
   loadLocalAnimeListActionCreator,
@@ -10,13 +10,14 @@ import {
 } from "../store/actions/actionUI/UIActionsCreator";
 import { AnimeContext } from "../store/contexts/AnimeContext/AnimeContext";
 import { UIContext } from "../store/contexts/UIContext/UIContext";
+import { ActionUI } from "../types/actionTypesUI/actionsUI";
 
 const useAPI = () => {
   const { UIdispatch } = useContext(UIContext);
   const { animeListInfo, dispatchAnime } = useContext(AnimeContext);
 
   const jikanAPI = useCallback(
-    async (apiURL: string) => {
+    async (apiURL: string, dispatch: Dispatch<ActionUI> = UIdispatch) => {
       UIdispatch(showLoadingActionCreator());
 
       try {
@@ -28,7 +29,7 @@ const useAPI = () => {
         UIdispatch(closeLoadingActionCreator());
         dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
       } catch (error) {
-        UIdispatch(showModalActionCreator(false, error as string));
+        dispatch(showModalActionCreator(false, error as string));
       }
     },
     [UIdispatch, dispatchAnime]
@@ -57,7 +58,6 @@ const useAPI = () => {
     });
   };
 
-
   const deleteLocalAPI = (apiURL: string, animeId: number) => {
     fetch(`${apiURL}/${animeId}`, {
       method: "DELETE",
@@ -65,7 +65,6 @@ const useAPI = () => {
   };
 
   return { deleteLocalAPI, postLocalAPI, jikanAPI, animeListInfo, getApiLocal };
-
 };
 
 export default useAPI;
