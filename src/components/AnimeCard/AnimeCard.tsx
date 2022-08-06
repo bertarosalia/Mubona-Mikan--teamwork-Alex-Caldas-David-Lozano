@@ -41,8 +41,8 @@ const AnimeCard = ({ animeInfo }: AnimeCardProps): JSX.Element => {
           alt={animeInfo.title}
         />
       </div>
+      <h3>{animeInfo.title}</h3>
       <div className="animeCard_info">
-        <h3>{animeInfo.title}</h3>
         <div className="animeCard_footer">
           <div className="info">
             <span>Type: {animeInfo.type}</span>

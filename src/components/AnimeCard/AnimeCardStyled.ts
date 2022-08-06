@@ -8,7 +8,9 @@ const AnimeCardStyled = styled.article`
   border-radius: 20px;
   box-shadow: 0 0 10px grey;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
   object-fit: cover;
   overflow: hidden;
 
@@ -23,17 +25,21 @@ const AnimeCardStyled = styled.article`
       width: 120px;
     }
   }
+  h3 {
+    width: calc(100% - 140px);
+    margin: 18px 0 0 0;
+    padding: 0 10px;
+  }
   .animeCard_info {
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 140px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    h3 {
-      margin: 0;
-    }
   }
   .animeCard_footer {
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
