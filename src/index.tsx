@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import AnimeContextProvider from "./store/contexts/animeContext/AnimeContextProvider";
+import AnimeContextProvider from "./store/contexts/AnimeContext/AnimeContextProvider";
 import UIContextProvider from "./store/contexts/UIContext/UIContextProvider";
 import { BrowserRouter } from "react-router-dom";
 import "@fontsource/roboto";

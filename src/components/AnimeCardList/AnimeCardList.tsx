@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AnimeContext } from "../../store/contexts/animeContext/AnimeContext";
+import { AnimeContext } from "../../store/contexts/AnimeContext/AnimeContext";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import Button from "../Button/Button";
 import AnimeCardListStyled from "./AnimeCardListStyled";
