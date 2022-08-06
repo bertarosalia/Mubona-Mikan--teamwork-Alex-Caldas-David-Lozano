@@ -39,7 +39,13 @@ const useAPI = () => {
     });
   };
 
-  return { postLocalAPI, jikanAPI, animeListInfo };
+  const deleteLocalAPI = (apiURL: string, animeId: number) => {
+    fetch(`${apiURL}/${animeId}`, {
+      method: "DELETE",
+    });
+  };
+
+  return { deleteLocalAPI, postLocalAPI, jikanAPI, animeListInfo };
 };
 
 export default useAPI;
