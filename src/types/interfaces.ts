@@ -27,6 +27,9 @@ export interface AnimeData {
   year: number;
   genres: GenresAnime[];
 }
+export interface AnimeLocalData extends AnimeData {
+  id: number;
+}
 
 export interface GenresAnime {
   name: string;
