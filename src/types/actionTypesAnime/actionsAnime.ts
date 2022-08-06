@@ -22,6 +22,6 @@ export interface NextAnimePageAction extends ActionAnime {
 }
 export interface PreviousAnimePageAction extends ActionAnime {}
 
-export interface LoadLocalAnimeListAction extends ActionAnime {
+export interface LoadLocalAnimeList extends ActionAnime {
   payload: AnimeLocalData[];
 }

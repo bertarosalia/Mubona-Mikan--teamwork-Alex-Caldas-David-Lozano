@@ -1,10 +1,9 @@
 import {
   LoadAnimeListAction,
-  LoadLocalAnimeListAction,
   NextAnimePageAction,
   PreviousAnimePageAction,
 } from "../../../types/actionTypesAnime/actionsAnime";
-import { AnimeInfo, AnimeLocalData } from "../../../types/interfaces";
+import { AnimeInfo } from "../../../types/interfaces";
 
 export const loadAnimeListActionCreator = (
   animeList: AnimeInfo
@@ -22,11 +21,4 @@ export const nextAnimePageActionCreator = (
 
 export const previousAnimePageActionCreator = (): PreviousAnimePageAction => ({
   type: "previousAnimePage",
-});
-
-export const LoadLocalAnimeListActionCreator = (
-  animeLocalList: AnimeLocalData[]
-): LoadLocalAnimeListAction => ({
-  type: "loadLocalAnimeList",
-  payload: animeLocalList,
 });

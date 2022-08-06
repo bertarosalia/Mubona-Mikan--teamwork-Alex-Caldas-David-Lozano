@@ -8,6 +8,7 @@ export interface AnimeInfo {
     };
   };
   data: AnimeData[];
+  animeLocalData: AnimeLocalData[];
 }
 
 export interface AnimeData {

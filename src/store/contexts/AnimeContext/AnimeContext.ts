@@ -21,6 +21,7 @@ export const AnimeContext = createContext<IAnimeContext>({
       },
     },
     data: [],
+    animeLocalData: [],
   },
   dispatchAnime: () => {},
 });
