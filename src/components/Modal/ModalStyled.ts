@@ -27,6 +27,21 @@ const ModalStyled = styled.div`
       background-color: #ff2e00;
     }
   }
+
+  button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+  }
 `;
 
 export default ModalStyled;
