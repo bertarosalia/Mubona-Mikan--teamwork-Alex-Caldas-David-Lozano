@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import UIContextProvider from "../../store/contexts/UIContext/UIContextProvider";
 import Modal from "./Modal";
 
