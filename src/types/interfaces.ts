@@ -8,6 +8,7 @@ export interface AnimeInfo {
     };
   };
   data: AnimeData[];
+  animeLocalData: AnimeLocalData[];
 }
 
 export interface AnimeData {
@@ -26,6 +27,9 @@ export interface AnimeData {
   synopsis: string;
   year: number;
   genres: GenresAnime[];
+}
+export interface AnimeLocalData extends AnimeData {
+  id: number;
 }
 
 export interface GenresAnime {

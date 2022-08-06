@@ -14,6 +14,7 @@ describe("Given the loadAnimeListActionCreator", () => {
         },
       },
       data: [],
+      animeLocalData: [],
     };
     const expectedAction = {
       type: "loadAnimeList",

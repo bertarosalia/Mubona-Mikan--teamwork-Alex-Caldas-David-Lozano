@@ -15,7 +15,7 @@ describe("Given the useApi hook", () => {
   describe("When it's instantiated with url with param 'page=0'", () => {
     test("The anime info must return '{pruebaguay: 'Bien!}'", async () => {
       const apiCorrectURL = `${process.env.REACT_APP_API_URL as string}?page=0`;
-      const expectedResponse = { pruebaguay: "Bien!" };
+      const expectedResponse = { animeLocalData: [], pruebaguay: "Bien!" };
 
       const { result } = renderHook(useAPI, {
         wrapper: testAnimeWrapper,

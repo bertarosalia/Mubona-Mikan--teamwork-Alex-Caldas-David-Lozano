@@ -20,6 +20,7 @@ const AnimeContextProvider = ({
       },
     },
     data: [],
+    animeLocalData: [],
   };
 
   const [animeListInfo, dispatchAnime] = useReducer(
