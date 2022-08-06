@@ -1,5 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import AnimeContextProvider from "../store/contexts/animeContext/AnimeContextProvider";
+import { UIContext } from "../store/contexts/UIContext/UIContext";
 import useAPI from "./useAPI";
 
 interface TestAnimeWrapperProps {
@@ -28,29 +29,31 @@ describe("Given the useApi hook", () => {
     });
   });
 
-  describe("When it's instantiated with url with param 'page=a'", () => {
+  describe("When it's instantiated with url and param 'page=aasadasda'", () => {
     test("Then should call the mocked dispatch", async () => {
       const apiURL = `${process.env.REACT_APP_API_URL as string}?page=asadasda`;
-      const expectedTDMResponse = {
-        pagination: {
-          has_next_page: false,
-          current_page: 0,
-          items: {
-            count: 0,
-            total: 666,
-          },
-        },
-        data: [],
+      const mockedDispatch = jest.fn();
+      const ui = {
+        isLoading: false,
+        isModalShowing: false,
+        message: "",
+        type: false,
       };
 
+      const testAnimeMockedWrapper = ({ children }: TestAnimeWrapperProps) => (
+        <UIContext.Provider value={{ ui, UIdispatch: mockedDispatch }}>
+          {children}
+        </UIContext.Provider>
+      );
+
       const { result } = renderHook(useAPI, {
-        wrapper: testAnimeWrapper,
+        wrapper: testAnimeMockedWrapper,
       });
 
       result.current.jikanAPI(apiURL);
 
       await waitFor(() => {
-        expect(result.current.animeListInfo).toEqual(expectedTDMResponse);
+        expect(mockedDispatch).toBeCalled();
       });
     });
   });
