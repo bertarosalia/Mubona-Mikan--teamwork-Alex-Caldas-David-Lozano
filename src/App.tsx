@@ -9,7 +9,6 @@ import { Routes, Route } from "react-router-dom";
 import MyListPage from "./pages/MyListPage/MyListPage";
 import AnimesPage from "./pages/AnimesPage/AnimesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import MyAnimeForm from "./components/MyAnimeForm/MyAnimeForm";
 
 function App() {
   const {
@@ -21,7 +20,6 @@ function App() {
       {isModalShowing && <Modal message={message} type={type} />}
       {isLoading && <Loading />}
       <Header />
-      <MyAnimeForm />
       <Navigation />
       <Routes>
         <Route path="/" element={<AnimesPage />} />
