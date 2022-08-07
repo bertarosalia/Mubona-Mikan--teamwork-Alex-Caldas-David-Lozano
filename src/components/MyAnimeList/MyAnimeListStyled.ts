@@ -7,14 +7,18 @@ const MyAnimeListStyled = styled.main`
   min-height: 10rem;
 
   .button_add_new {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
     position: absolute;
+    line-height: 0;
     top: 128px;
     right: 10px;
     border: 0;
     font-size: 40px;
     font-weight: 500;
     color: #e5c185;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
   }
   .my-anime-list {
@@ -31,6 +35,10 @@ const MyAnimeListStyled = styled.main`
       justify-content: space-around;
       gap: 2rem;
     }
+  }
+
+  input {
+    border: 1px solid #ff6b00;
   }
 `;
 

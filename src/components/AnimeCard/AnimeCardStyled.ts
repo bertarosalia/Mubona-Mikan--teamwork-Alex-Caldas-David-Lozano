@@ -60,7 +60,6 @@ const AnimeCardStyled = styled.article`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    border: 1px solid;
 
     h3 {
       order: 1;
