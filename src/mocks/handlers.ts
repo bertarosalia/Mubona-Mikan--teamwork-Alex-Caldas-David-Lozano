@@ -37,4 +37,8 @@ export const handlers = [
   rest.get(`${apiLocalUrl}`, async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
   }),
+
+  rest.post(`${apiLocalUrl}`, async (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
+  }),
 ];
