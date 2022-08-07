@@ -16,6 +16,10 @@ export interface ShowLoadingUI extends ActionUI {}
 
 export interface CloseLoadingUI extends ActionUI {}
 
+export interface ShowFormUI extends ActionUI {}
+
+export interface CloseFormUI extends ActionUI {}
+
 export interface ShowModalUI extends ActionUI {
   payload: {
     isPositive: boolean;

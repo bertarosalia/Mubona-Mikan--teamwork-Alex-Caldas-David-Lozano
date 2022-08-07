@@ -6,6 +6,7 @@ describe("Given the UIReducer function", () => {
       const loadingState = {
         isLoading: false,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
@@ -15,6 +16,7 @@ describe("Given the UIReducer function", () => {
       const newloadingState = {
         isLoading: true,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
@@ -33,6 +35,7 @@ describe("Given the UIReducer function", () => {
       const loadingState = {
         isLoading: true,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
@@ -42,6 +45,7 @@ describe("Given the UIReducer function", () => {
       const newloadingState = {
         isLoading: false,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
@@ -60,6 +64,7 @@ describe("Given the UIReducer function", () => {
       const UIState = {
         isLoading: false,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
@@ -73,6 +78,7 @@ describe("Given the UIReducer function", () => {
       const newUIState = {
         isLoading: false,
         isModalShowing: true,
+        isFormShowing: false,
         message: "Hola",
         type: true,
       };
@@ -88,6 +94,7 @@ describe("Given the UIReducer function", () => {
       const UIState = {
         isLoading: false,
         isModalShowing: true,
+        isFormShowing: false,
         message: "Hola",
         type: false,
       };
@@ -97,6 +104,7 @@ describe("Given the UIReducer function", () => {
       const newUIState = {
         isLoading: false,
         isModalShowing: false,
+        isFormShowing: false,
         message: "Hola",
         type: false,
       };
@@ -112,6 +120,7 @@ describe("Given the UIReducer function", () => {
       const loadingState = {
         isLoading: true,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
@@ -121,6 +130,7 @@ describe("Given the UIReducer function", () => {
       const newloadingState = {
         isLoading: true,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };

@@ -39,6 +39,7 @@ export interface GenresAnime {
 export interface UIState {
   isLoading: boolean;
   isModalShowing: boolean;
+  isFormShowing: boolean;
   message: string;
   type: boolean;
 }
