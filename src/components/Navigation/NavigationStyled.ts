@@ -25,6 +25,15 @@ const NavigationStyled = styled.section`
     width: 100%;
     height: 3rem;
     justify-content: flex-end;
+
+    @media (min-width: 768px) {
+      .navigation-anime {
+        height: 3.7rem;
+      }
+      .list-animes__links {
+        font-size: 1.5rem;
+      }
+    }
   }
 `;
 export default NavigationStyled;
