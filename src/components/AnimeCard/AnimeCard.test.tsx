@@ -1,6 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { UIContext } from "../../store/contexts/UIContext/UIContext";
 import AnimeCard from "./AnimeCard";
 
 describe("Given an AnimeCard component", () => {
@@ -19,7 +17,7 @@ describe("Given an AnimeCard component", () => {
     score: 444,
     synopsis: "pasan cosas que cosas pasan",
     year: 555,
-    genres: [],
+    genres: [{ name: "Fantasy" }, { name: "Action" }],
   };
   const testButtonText = "Add";
 
@@ -55,31 +53,15 @@ describe("Given an AnimeCard component", () => {
     });
   });
 
-  describe("When user click on 'Add' button", () => {
-    test("Then it call the action assigned", () => {
-      const mockActionOnClick = jest.fn();
-      const initialUI = {
-        isLoading: false,
-        isModalShowing: false,
-        isFormShowing: false,
-        message: "",
-        type: false,
-      };
+  describe("When it recieves an anime information with true valor", () => {
+    test("Then it should show in synopsis'pasan cosas que cosas pasan'", () => {
+      const synopsisText = "pasan cosas que cosas pasan";
 
-      render(
-        <UIContext.Provider
-          value={{ ui: initialUI, UIdispatch: mockActionOnClick }}
-        >
-          <AnimeCard animeInfo={testArray} isDetailed={false} />
-        </UIContext.Provider>
-      );
+      render(<AnimeCard animeInfo={testArray} isDetailed={true} />);
 
-      const button = screen.getByRole("button", {
-        name: testButtonText,
-      });
-      userEvent.click(button);
+      const testCardDetailed = screen.getByText(synopsisText);
 
-      expect(mockActionOnClick).toBeCalled();
+      expect(testCardDetailed).toBeInTheDocument();
     });
   });
 });
