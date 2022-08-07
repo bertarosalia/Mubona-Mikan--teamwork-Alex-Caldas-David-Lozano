@@ -63,22 +63,6 @@ describe("Given a AnimeCardList", () => {
   };
 
   describe("When it's rendered", () => {
-    test("Then should show 'Anime' in heading level 2", () => {
-      const title = "Anime";
-
-      render(
-        <AnimeContextProvider>
-          <AnimeCardList />
-        </AnimeContextProvider>
-      );
-
-      const heading = screen.getByRole("heading", {
-        name: title,
-      });
-
-      expect(heading).toBeInTheDocument();
-    });
-
     test("Then should show two buttons", () => {
       const numberOfButtons = 2;
 
