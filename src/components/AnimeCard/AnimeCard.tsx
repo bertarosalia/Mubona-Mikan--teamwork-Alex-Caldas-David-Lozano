@@ -1,9 +1,6 @@
 import Button from "../Button/Button";
 import AnimeCardStyled from "./AnimeCardStyled";
 import { AnimeData } from "../../types/interfaces";
-import { showModalActionCreator } from "../../store/actions/actionUI/UIActionsCreator";
-import { useContext } from "react";
-import { UIContext } from "../../store/contexts/UIContext/UIContext";
 import useAPI from "../../hooks/useAPI";
 
 interface AnimeCardProps {
@@ -12,7 +9,6 @@ interface AnimeCardProps {
 }
 
 function AnimeCard({ animeInfo, isDetailed }: AnimeCardProps): JSX.Element {
-  const { UIdispatch } = useContext(UIContext);
   const { postLocalAPI } = useAPI();
   const urlAPI = `${process.env.REACT_APP_LOCAL_API_URL as string}`;
 
@@ -78,9 +74,6 @@ function AnimeCard({ animeInfo, isDetailed }: AnimeCardProps): JSX.Element {
                 text="Add"
                 actionOnClick={() => {
                   postLocalAPI(urlAPI, mokAnimeObject);
-                  UIdispatch(
-                    showModalActionCreator(true, "Anime added to your list")
-                  );
                 }}
               />
             </div>

@@ -1,4 +1,8 @@
-import { loadAnimeListActionCreator } from "./animeActionsCreator";
+import { AnimeLocalData } from "../../../types/interfaces";
+import {
+  loadAnimeListActionCreator,
+  loadLocalAnimeListActionCreator,
+} from "./animeActionsCreator";
 import { nextAnimePageActionCreator } from "./animeActionsCreator";
 import { previousAnimePageActionCreator } from "./animeActionsCreator";
 
@@ -64,5 +68,23 @@ describe("Given an action creator previousAnimePageActionCreator", () => {
 
       expect(previousAnimePageTest).toEqual(expectedAction);
     });
+  });
+});
+
+describe("Given the loadLocalAnimeListActionCreator", () => {
+  describe("When it's instantiated with an anime list", () => {
+    test("Then it should return an action with type 'loadLocalAnimeList' and payload with the anime local list", () => {});
+
+    const animeLocalList: AnimeLocalData[] = [];
+
+    const actionExpected = {
+      type: "loadLocalAnimeList",
+      payload: animeLocalList,
+    };
+
+    const loadLocalAnimeListAction =
+      loadLocalAnimeListActionCreator(animeLocalList);
+
+    expect(loadLocalAnimeListAction).toEqual(actionExpected);
   });
 });
