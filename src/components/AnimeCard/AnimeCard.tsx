@@ -57,7 +57,7 @@ function AnimeCard({ animeInfo, isDetailed }: AnimeCardProps): JSX.Element {
             {isDetailed && (
               <div>
                 <img
-                  src="images/iconStar.png"
+                  src="images/iconStar.webp"
                   width="20"
                   height="20"
                   alt="rating star icon"
