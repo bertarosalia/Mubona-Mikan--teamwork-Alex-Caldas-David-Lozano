@@ -15,6 +15,7 @@ const AnimeCardList = () => {
   const urlAPI = `${process.env.REACT_APP_API_URL as string}?page=${
     animeListInfo.pagination.current_page
   }&limit=12`;
+
   useEffect(() => {
     jikanAPI(urlAPI);
   }, [jikanAPI, urlAPI]);
