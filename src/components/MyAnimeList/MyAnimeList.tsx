@@ -18,7 +18,12 @@ const MyAnimeList = () => {
     <>
       <MyAnimeListStyled>
         <h2 className="my-anime-list__title">My Anime List</h2>
-        <button className="button_add_new">+</button>
+        <button
+          className="button_add_new"
+          onClick={() => console.log("putavida tet")}
+        >
+          +
+        </button>
         <section className="my-anime-list__container">
           {animeLocalData.map((anime) => (
             <AnimeCard key={anime.id} animeInfo={anime} isDetailed={false} />

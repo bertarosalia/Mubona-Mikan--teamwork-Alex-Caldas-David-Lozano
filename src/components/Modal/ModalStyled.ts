@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const ModalStyled = styled.div`
+  z-index: 1;
   box-sizing: border-box;
   padding: 1rem;
   width: 100%;
