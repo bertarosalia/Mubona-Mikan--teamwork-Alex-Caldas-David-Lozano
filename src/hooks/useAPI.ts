@@ -54,7 +54,7 @@ const useAPI = () => {
     fetch(apiURL, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ animeObject }),
+      body: JSON.stringify(animeObject),
     });
   };
 
