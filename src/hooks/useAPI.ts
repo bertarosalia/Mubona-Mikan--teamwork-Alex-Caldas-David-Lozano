@@ -66,6 +66,8 @@ const useAPI = () => {
       if (!response.ok) {
         throw new Error();
       }
+      const localApiAnime = await response.json();
+      dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
       dispatch(showModalActionCreator(true, "Anime added to your list"));
     } catch (error) {
       dispatch(showModalActionCreator(false, "Something were wrong"));
@@ -84,8 +86,9 @@ const useAPI = () => {
       if (!response.ok) {
         throw new Error();
       }
-
-      dispatch(showModalActionCreator(true, "Anime deleted to your list"));
+      const localApiAnime = await response.json();
+      UIdispatch(showModalActionCreator(true, "Anime deleted to your list"));
+      dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
     } catch (error) {
       dispatch(showModalActionCreator(false, "Something were wrong"));
     }

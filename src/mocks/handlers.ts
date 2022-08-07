@@ -38,7 +38,23 @@ export const handlers = [
     return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
   }),
 
+  rest.get(`${apiLocalUrl}/dsa`, async (req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(mockFailureResponse));
+  }),
+
   rest.post(`${apiLocalUrl}`, async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
+  }),
+
+  rest.post(`${apiLocalUrl}/dsa`, async (req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(mockFailureResponse));
+  }),
+
+  rest.delete(`${apiLocalUrl}/1`, async (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
+  }),
+
+  rest.delete(`${apiLocalUrl}/7`, async (req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(mockFailureResponse));
   }),
 ];

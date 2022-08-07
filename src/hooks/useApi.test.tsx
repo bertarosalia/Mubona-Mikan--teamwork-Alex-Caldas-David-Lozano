@@ -74,7 +74,7 @@ describe("Given the useApi hook", () => {
     });
   });
 
-  describe("When it's instantiated with getApiLocal and url with '/dsa'", () => {
+  describe("When it's instantiated with getApiLocal and local url with '/dsa'", () => {
     test("Then should call the mocked dispatch", async () => {
       const apiLocalURL = `${
         process.env.REACT_APP_LOCAL_API_URL as string
@@ -121,7 +121,7 @@ describe("Given the useApi hook", () => {
     });
   });
 
-  describe("When it's instantiated with postLocalApi and url with '/dsa'", () => {
+  describe("When it's instantiated with postLocalApi and local url with '/dsa'", () => {
     test("Then should call the mocked dispatch", async () => {
       const apiLocalURL = `${
         process.env.REACT_APP_LOCAL_API_URL as string
@@ -132,6 +132,51 @@ describe("Given the useApi hook", () => {
         wrapper: testAnimeWrapper,
       });
       result.current.postLocalAPI(apiLocalURL, {}, mockDispatch);
+
+      await waitFor(() => {
+        expect(mockDispatch).toBeCalled();
+      });
+    });
+  });
+
+  describe("When it's instantiated with deleteLocalApi with local url and id '1'", () => {
+    test("The anime info must contain in return {testSuccess: 'Great'}", async () => {
+      const apiCorrectURL = process.env.REACT_APP_LOCAL_API_URL as string;
+      const expectedLocalResponse = {
+        animeLocalData: [
+          {
+            testSuccess: "Great",
+          },
+        ],
+        data: [],
+        pagination: {
+          current_page: 0,
+          has_next_page: false,
+          items: { count: 0, total: 666 },
+        },
+      };
+
+      const { result } = renderHook(useAPI, {
+        wrapper: testAnimeWrapper,
+      });
+
+      result.current.deleteLocalAPI(apiCorrectURL, 1);
+
+      await waitFor(() => {
+        expect(result.current.animeListInfo).toEqual(expectedLocalResponse);
+      });
+    });
+  });
+
+  describe("When it's instantiated with deleteLocalApi and local url with id '7'", () => {
+    test("Then should call the mocked dispatch", async () => {
+      const apiLocalURL = `${process.env.REACT_APP_LOCAL_API_URL as string}`;
+      const mockDispatch = jest.fn();
+
+      const { result } = renderHook(useAPI, {
+        wrapper: testAnimeWrapper,
+      });
+      result.current.deleteLocalAPI(apiLocalURL, 7, mockDispatch);
 
       await waitFor(() => {
         expect(mockDispatch).toBeCalled();
