@@ -37,7 +37,6 @@ const AnimeCardList = () => {
 
   return (
     <AnimeCardListStyled>
-      <h2 className="animeListCard__title">Anime</h2>
       <section className="animeListCard__container">
         {animesList.map((anime) => (
           <AnimeCard animeInfo={anime} key={anime.mal_id} isDetailed={true} />
