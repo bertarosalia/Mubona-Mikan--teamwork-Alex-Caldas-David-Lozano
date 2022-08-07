@@ -32,6 +32,12 @@ const UIReducer = (
         isModalShowing: false,
       };
       break;
+    case "showForm":
+      newUI = { ...currentUI, isFormShowing: true };
+      break;
+    case "closeForm":
+      newUI = { ...currentUI, isFormShowing: false };
+      break;
     default:
       newUI = { ...currentUI };
       break;

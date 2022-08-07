@@ -7,6 +7,12 @@ export interface IUIContext {
 }
 
 export const UIContext = createContext<IUIContext>({
-  ui: { isLoading: false, isModalShowing: false, message: "", type: false },
+  ui: {
+    isFormShowing: false,
+    isLoading: false,
+    isModalShowing: false,
+    message: "",
+    type: false,
+  },
   UIdispatch: () => {},
 });

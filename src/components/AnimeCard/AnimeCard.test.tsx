@@ -61,6 +61,7 @@ describe("Given an AnimeCard component", () => {
       const initialUI = {
         isLoading: false,
         isModalShowing: false,
+        isFormShowing: false,
         message: "",
         type: false,
       };
