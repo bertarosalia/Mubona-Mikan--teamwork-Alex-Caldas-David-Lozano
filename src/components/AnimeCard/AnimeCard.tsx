@@ -32,51 +32,64 @@ function AnimeCard({ animeInfo, isDetailed }: AnimeCardProps): JSX.Element {
     genres: generesFilter,
   };
 
-  console.log(isDetailed);
-
   return (
     <>
       <AnimeCardStyled>
-        <div className="animeCard_image-frame">
-          <img
-            width="120"
-            height="160"
-            src={animeInfo.images.webp.image_url}
-            alt={animeInfo.title}
-          />
-        </div>
-        <h3>{animeInfo.title}</h3>
-        <div className="animeCard_info">
+        <div className={isDetailed ? "detailed" : "not-detailed"}>
+          <div className="animeCard_image-frame">
+            <img
+              width="120"
+              height="160"
+              src={animeInfo.images.webp.image_url}
+              alt={animeInfo.title}
+            />
+          </div>
+          <h3>{animeInfo.title}</h3>
+
           <div className="animeCard_footer">
             <div className="info">
               <span>Type: {animeInfo.type}</span>
               <span>Episodes: {animeInfo.episodes}</span>
             </div>
-            {isDetailed && <span>Duration: {animeInfo.duration}</span>}
-            {isDetailed && <span>Rating: {animeInfo.rating}</span>}
             {isDetailed && (
-              <div>
-                <img
-                  src="images/iconStar.webp"
-                  width="20"
-                  height="20"
-                  alt="rating star icon"
-                ></img>
-                {animeInfo.score}
-              </div>
+              <span>
+                Duration:
+                <br /> {animeInfo.duration}
+              </span>
             )}
-            <Button
-              text="Add"
-              actionOnClick={() => {
-                postLocalAPI(urlAPI, mokAnimeObject);
-                UIdispatch(
-                  showModalActionCreator(true, "Anime added to your list")
-                );
-              }}
-            />
+            {isDetailed && (
+              <span>
+                Rating:
+                <br /> {animeInfo.rating}
+              </span>
+            )}
+            <div className="animeCard_footer_score_button">
+              {isDetailed && (
+                <div className="animeCard_footer_score">
+                  <img
+                    src="images/iconStar.webp"
+                    width="20"
+                    height="20"
+                    alt="rating star icon"
+                  ></img>
+                  {animeInfo.score}
+                </div>
+              )}
+              <Button
+                text="Add"
+                actionOnClick={() => {
+                  postLocalAPI(urlAPI, mokAnimeObject);
+                  UIdispatch(
+                    showModalActionCreator(true, "Anime added to your list")
+                  );
+                }}
+              />
+            </div>
           </div>
+          {isDetailed && (
+            <span className="animeCard_synapsis">{animeInfo.synopsis}</span>
+          )}
         </div>
-        {isDetailed && <span>{animeInfo.synopsis}</span>}
       </AnimeCardStyled>
     </>
   );
