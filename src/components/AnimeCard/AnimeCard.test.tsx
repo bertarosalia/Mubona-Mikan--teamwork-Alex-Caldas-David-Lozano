@@ -19,7 +19,7 @@ describe("Given an AnimeCard component", () => {
     score: 444,
     synopsis: "pasan cosas que cosas pasan",
     year: 555,
-    genres: [],
+    genres: [{ name: "Fantasy" }, { name: "Action" }],
   };
   const testButtonText = "Add";
 
@@ -79,6 +79,18 @@ describe("Given an AnimeCard component", () => {
       userEvent.click(button);
 
       expect(mockActionOnClick).toBeCalled();
+    });
+  });
+
+  describe("When it recieves an anime information with true valor", () => {
+    test("Then it should show in synopsis'pasan cosas que cosas pasan'", () => {
+      const synopsisText = "pasan cosas que cosas pasan";
+
+      render(<AnimeCard animeInfo={testArray} isDetailed={true} />);
+
+      const testCardDetailed = screen.getByText(synopsisText);
+
+      expect(testCardDetailed).toBeInTheDocument();
     });
   });
 });
