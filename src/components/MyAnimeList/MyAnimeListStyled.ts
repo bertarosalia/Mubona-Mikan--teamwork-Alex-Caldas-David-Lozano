@@ -28,7 +28,7 @@ const MyAnimeListStyled = styled.main`
     }
 
     &__container {
-      height: calc(100vh - 460px);
+      min-height: calc(100vh - 460px);
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
