@@ -25,7 +25,7 @@ describe("Given an AnimeCard component", () => {
 
   describe("When it recieves an anime information", () => {
     test("Then it should show an image with 'Title test anime' as alternative text", () => {
-      render(<AnimeCard animeInfo={testArray} />);
+      render(<AnimeCard animeInfo={testArray} isDetailed={false} />);
 
       const testCard = screen.getByRole("img", {
         name: testArray.title,
@@ -35,7 +35,7 @@ describe("Given an AnimeCard component", () => {
     });
 
     test("Then is should show 'Title test anime' in a heading", () => {
-      render(<AnimeCard animeInfo={testArray} />);
+      render(<AnimeCard animeInfo={testArray} isDetailed={false} />);
 
       const testCardHeading = screen.getByRole("heading", {
         name: testArray.title,
@@ -45,7 +45,7 @@ describe("Given an AnimeCard component", () => {
     });
 
     test("Then it should show an 'Add' button inside AnimeCard", () => {
-      render(<AnimeCard animeInfo={testArray} />);
+      render(<AnimeCard animeInfo={testArray} isDetailed={false} />);
 
       const testCardButton = screen.getByRole("button", {
         name: testButtonText,
@@ -69,7 +69,7 @@ describe("Given an AnimeCard component", () => {
         <UIContext.Provider
           value={{ ui: initialUI, UIdispatch: mockActionOnClick }}
         >
-          <AnimeCard animeInfo={testArray} />
+          <AnimeCard animeInfo={testArray} isDetailed={false} />
         </UIContext.Provider>
       );
 

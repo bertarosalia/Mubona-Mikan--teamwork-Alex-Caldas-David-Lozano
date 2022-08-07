@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const AnimeCardStyled = styled.article`
   box-sizing: border-box;
-  height: 160px;
   width: 100%;
   min-width: 300px;
   border-radius: 20px;
