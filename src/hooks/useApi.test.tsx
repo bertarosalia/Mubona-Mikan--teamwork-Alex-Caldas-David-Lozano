@@ -13,6 +13,20 @@ const testAnimeWrapper = ({ children }: TestAnimeWrapperProps) => (
 );
 
 describe("Given the useApi hook", () => {
+  const expectedLocalResponse = {
+    animeLocalData: [
+      {
+        testSuccess: "Great",
+      },
+    ],
+    data: [],
+    pagination: {
+      current_page: 0,
+      has_next_page: false,
+      items: { count: 0, total: 666 },
+    },
+  };
+
   describe("When it's instantiated with JikanAPI and url with param 'page=0'", () => {
     test("The anime info must return '{pruebaguay: 'Bien!}'", async () => {
       const apiCorrectURL = `${process.env.REACT_APP_API_URL as string}?page=0`;
@@ -21,7 +35,6 @@ describe("Given the useApi hook", () => {
       const { result } = renderHook(useAPI, {
         wrapper: testAnimeWrapper,
       });
-
       result.current.jikanAPI(apiCorrectURL);
 
       await waitFor(() => {
@@ -48,24 +61,10 @@ describe("Given the useApi hook", () => {
   describe("When it's instantiated with getApiLocal with local url", () => {
     test("The anime info must contain in return {testSuccess: 'Great'}", async () => {
       const apiCorrectURL = process.env.REACT_APP_LOCAL_API_URL as string;
-      const expectedLocalResponse = {
-        animeLocalData: [
-          {
-            testSuccess: "Great",
-          },
-        ],
-        data: [],
-        pagination: {
-          current_page: 0,
-          has_next_page: false,
-          items: { count: 0, total: 666 },
-        },
-      };
 
       const { result } = renderHook(useAPI, {
         wrapper: testAnimeWrapper,
       });
-
       result.current.getApiLocal(apiCorrectURL);
 
       await waitFor(() => {
@@ -95,24 +94,10 @@ describe("Given the useApi hook", () => {
   describe("When it's instantiated with postLocalApi with local url", () => {
     test("The anime info must contain in return {testSuccess: 'Great'}", async () => {
       const apiCorrectURL = process.env.REACT_APP_LOCAL_API_URL as string;
-      const expectedLocalResponse = {
-        animeLocalData: [
-          {
-            testSuccess: "Great",
-          },
-        ],
-        data: [],
-        pagination: {
-          current_page: 0,
-          has_next_page: false,
-          items: { count: 0, total: 666 },
-        },
-      };
 
       const { result } = renderHook(useAPI, {
         wrapper: testAnimeWrapper,
       });
-
       result.current.postLocalAPI(apiCorrectURL, {});
 
       await waitFor(() => {
@@ -142,24 +127,10 @@ describe("Given the useApi hook", () => {
   describe("When it's instantiated with deleteLocalApi with local url and id '1'", () => {
     test("The anime info must contain in return {testSuccess: 'Great'}", async () => {
       const apiCorrectURL = process.env.REACT_APP_LOCAL_API_URL as string;
-      const expectedLocalResponse = {
-        animeLocalData: [
-          {
-            testSuccess: "Great",
-          },
-        ],
-        data: [],
-        pagination: {
-          current_page: 0,
-          has_next_page: false,
-          items: { count: 0, total: 666 },
-        },
-      };
 
       const { result } = renderHook(useAPI, {
         wrapper: testAnimeWrapper,
       });
-
       result.current.deleteLocalAPI(apiCorrectURL, 1);
 
       await waitFor(() => {
