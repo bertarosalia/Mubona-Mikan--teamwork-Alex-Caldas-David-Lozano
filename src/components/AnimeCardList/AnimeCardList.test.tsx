@@ -4,7 +4,6 @@ import {
   AnimeContext,
   IAnimeContext,
 } from "../../store/contexts/AnimeContext/AnimeContext";
-import AnimeContextProvider from "../../store/contexts/AnimeContext/AnimeContextProvider";
 import AnimeCardList from "./AnimeCardList";
 
 describe("Given a AnimeCardList", () => {
