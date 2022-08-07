@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState } from "react";
 import useAPI from "../../hooks/useAPI";
 import { AnimeData } from "../../types/interfaces";
+import MyAnimeFormStyled from "./MyAnimeFormStyled";
 
 const MyAnimeForm = () => {
   const initialAnimeFormData: AnimeData = {
@@ -14,7 +15,7 @@ const MyAnimeForm = () => {
     type: "",
     episodes: 0,
     duration: "",
-    genres: [{ name: "dsadasd" }, { name: "asdsda" }],
+    genres: [{ name: "" }, { name: "" }],
     rating: "",
     year: 0,
     score: 0,
@@ -86,7 +87,7 @@ const MyAnimeForm = () => {
     animeForm.synopsis !== "";
 
   return (
-    <>
+    <MyAnimeFormStyled>
       <h3>Edit your anime details</h3>
       <form
         className="new-anime"
@@ -251,7 +252,7 @@ const MyAnimeForm = () => {
           </button>
         </div>
       </form>
-    </>
+    </MyAnimeFormStyled>
   );
 };
 
