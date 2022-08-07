@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import useAPI from "../../hooks/useAPI";
 import { UIContext } from "../../store/contexts/UIContext/UIContext";
 import AnimeCard from "./AnimeCard";
 
@@ -52,33 +53,6 @@ describe("Given an AnimeCard component", () => {
       });
 
       expect(testCardButton).toHaveTextContent(testButtonText);
-    });
-  });
-
-  describe("When user click on 'Add' button", () => {
-    test("Then it call the action assigned", () => {
-      const mockActionOnClick = jest.fn();
-      const initialUI = {
-        isLoading: false,
-        isModalShowing: false,
-        message: "",
-        type: false,
-      };
-
-      render(
-        <UIContext.Provider
-          value={{ ui: initialUI, UIdispatch: mockActionOnClick }}
-        >
-          <AnimeCard animeInfo={testArray} isDetailed={false} />
-        </UIContext.Provider>
-      );
-
-      const button = screen.getByRole("button", {
-        name: testButtonText,
-      });
-      userEvent.click(button);
-
-      expect(mockActionOnClick).toBeCalled();
     });
   });
 
