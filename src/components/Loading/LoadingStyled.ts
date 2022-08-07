@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const LoadingStyled = styled.div`
+  z-index: 1;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
