@@ -3,16 +3,12 @@ import MyAnimeList from "./MyAnimeList";
 
 describe("Given a My Anime List component", () => {
   describe("When is rendered", () => {
-    test("Then it should show 'My List' in heading 2", () => {
-      const titleExpected = "My List";
-
+    test("Then it should show a section on it", () => {
       render(<MyAnimeList />);
 
-      const headingMyAnimeList = screen.getByRole("heading", {
-        name: titleExpected,
-      });
+      const animeCardWrap = screen.getAllByRole("main");
 
-      expect(headingMyAnimeList).toBeInTheDocument();
+      expect(animeCardWrap).toHaveLength(1);
     });
   });
 });
