@@ -7,7 +7,6 @@ const MyAnimeListStyled = styled.main`
   min-height: 10rem;
 
   .button_add_new {
-    z-index: -1;
     position: absolute;
     top: 128px;
     right: 10px;
@@ -25,6 +24,7 @@ const MyAnimeListStyled = styled.main`
     }
 
     &__container {
+      height: calc(100vh - 460px);
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
