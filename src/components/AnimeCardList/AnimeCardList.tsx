@@ -40,7 +40,7 @@ const AnimeCardList = () => {
     <AnimeCardListStyled>
       <section className="animeListCard__container">
         {animesList.map((anime) => (
-          <AnimeCard animeInfo={anime} key={anime.mal_id} isDetailed={true} />
+          <AnimeCard animeInfo={anime} key={anime.mal_id} isDetailed={false} />
         ))}
       </section>
       <div className="animeListCard__pagination">
