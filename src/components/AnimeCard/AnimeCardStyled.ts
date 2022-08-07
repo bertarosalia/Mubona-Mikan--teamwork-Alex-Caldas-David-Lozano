@@ -54,8 +54,6 @@ const AnimeCardStyled = styled.article`
     padding: 20px;
     width: 100%;
     min-width: 330px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px grey;
     display: flex;
     flex-direction: column;
     gap: 15px;
