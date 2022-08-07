@@ -53,6 +53,7 @@ const AnimeCardStyled = styled.article`
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
+    min-width: 330px;
     border-radius: 20px;
     box-shadow: 0 0 10px grey;
     display: flex;
@@ -61,6 +62,7 @@ const AnimeCardStyled = styled.article`
 
     h3 {
       order: 1;
+      width: 100%;
     }
     .animeCard_image-frame {
       order: 2;
@@ -110,6 +112,88 @@ const AnimeCardStyled = styled.article`
     }
     .animeCard_synapsis {
       order: 4;
+    }
+    @media (min-width: 490px) and (max-width: 699px) {
+      .animeCard_image-frame {
+        width: fit-content;
+      }
+      .animeCard_footer {
+        width: calc(100% - 240px);
+        height: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+      .animeCard_footer_score_button {
+        width: 100%;
+      }
+      .animeCard_synapsis {
+        width: 100%;
+      }
+    }
+    @media (min-width: 700px) and (max-width: 839px) {
+      .animeCard_image-frame {
+        width: fit-content;
+      }
+      .animeCard_footer {
+        width: calc(100% - 240px);
+        height: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+      .animeCard_footer_score_button {
+        width: 100%;
+      }
+      .animeCard_synapsis {
+        width: 100%;
+        height: 320px;
+        overflow: scroll;
+      }
+    }
+    @media (min-width: 840px) {
+      .animeCard_image-frame {
+        order: 1;
+        width: fit-content;
+        height: fit-content;
+      }
+      h3 {
+        margin: 0;
+        width: calc(100% - 240px);
+        height: fit-content;
+      }
+      .animeCard_footer {
+        margin: 0;
+        width: calc(100% - 240px);
+        height: fit-content;
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      .animeCard_synapsis {
+        width: calc(100% - 240px);
+        height: 209px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  @media (min-width: 490px) and (max-width: 699px) {
+    .detailed {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  @media (min-width: 700px) and (max-width: 839px) {
+    .detailed {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  @media (min-width: 840px) {
+    .detailed {
+      height: 360px;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
   }
 `;

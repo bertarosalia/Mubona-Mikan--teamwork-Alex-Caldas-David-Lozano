@@ -45,7 +45,6 @@ function AnimeCard({ animeInfo, isDetailed }: AnimeCardProps): JSX.Element {
             />
           </div>
           <h3>{animeInfo.title}</h3>
-
           <div className="animeCard_footer">
             <div className="info">
               <span>Type: {animeInfo.type}</span>
@@ -87,7 +86,12 @@ function AnimeCard({ animeInfo, isDetailed }: AnimeCardProps): JSX.Element {
             </div>
           </div>
           {isDetailed && (
-            <span className="animeCard_synapsis">{animeInfo.synopsis}</span>
+            <span className="animeCard_synapsis">
+              <strong>Synopsis:</strong>
+              <br />
+              <br />
+              {animeInfo.synopsis}
+            </span>
           )}
         </div>
       </AnimeCardStyled>
