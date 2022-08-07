@@ -1,4 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { UIContext } from "../../store/contexts/UIContext/UIContext";
 import UIContextProvider from "../../store/contexts/UIContext/UIContextProvider";
 import Modal from "./Modal";
 
@@ -44,6 +46,33 @@ describe("Given a Modal component", () => {
       const testStyles = getComputedStyle(test);
 
       expect(testStyles.backgroundColor).toBe("rgb(255, 46, 0)");
+    });
+  });
+
+  describe("When instantiated with mocked function", () => {
+    test("Then it should be called when click button", () => {
+      const mockedDispatch = jest.fn();
+
+      const initialUI = {
+        ui: {
+          isLoading: false,
+          isModalShowing: false,
+          message: "",
+          type: false,
+        },
+        UIdispatch: mockedDispatch,
+      };
+
+      render(
+        <UIContext.Provider value={initialUI}>
+          <Modal message={""} type={false} />
+        </UIContext.Provider>
+      );
+
+      const modalButton = screen.getByRole("button", { name: "X" });
+      userEvent.click(modalButton);
+
+      expect(mockedDispatch).toBeCalled();
     });
   });
 });
