@@ -13,6 +13,7 @@ const UIContextProvider = ({
   const initialUI: UIState = {
     isLoading: false,
     isModalShowing: false,
+    isFormShowing: false,
     message: "",
     type: false,
   };

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import AnimeCardList from "../../components/AnimeCardList/AnimeCardList";
-import AnimeCardListStyled from "../../components/AnimeCardList/AnimeCardListStyled";
 import { AnimeContext } from "../../store/contexts/AnimeContext/AnimeContext";
 
 const AnimesPage = (): JSX.Element => {
@@ -10,14 +9,7 @@ const AnimesPage = (): JSX.Element => {
     pagination: { current_page },
   } = animeListInfo;
 
-  return (
-    <>
-      <AnimeCardListStyled>
-        <h2 className="animeListCard__title">Anime</h2>
-        {current_page !== -1 && <AnimeCardList />}
-      </AnimeCardListStyled>
-    </>
-  );
+  return <>{current_page !== -1 && <AnimeCardList />}</>;
 };
 
 export default AnimesPage;

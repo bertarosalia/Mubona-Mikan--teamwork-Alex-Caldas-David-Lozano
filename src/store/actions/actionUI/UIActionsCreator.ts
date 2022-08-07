@@ -13,6 +13,14 @@ export const closeLoadingActionCreator = (): CloseLoadingUI => ({
   type: "closeLoading",
 });
 
+export const showFormActionCreator = (): ShowLoadingUI => ({
+  type: "showForm",
+});
+
+export const closeFormActionCreator = (): CloseLoadingUI => ({
+  type: "closeForm",
+});
+
 export const showModalActionCreator = (
   isPositive: boolean,
   message: string
