@@ -78,6 +78,7 @@ describe("Given the UIReducer function", () => {
       const newUIState = {
         isLoading: false,
         isModalShowing: true,
+        isFormShowing: false,
         message: "Hola",
         type: true,
       };
