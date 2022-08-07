@@ -12,7 +12,7 @@ const MyAnimeList = () => {
   useEffect(() => {
     getApiLocal(localApi);
   }, [getApiLocal, localApi]);
-  console.log(animeListInfo.animeLocalData);
+
   const { animeLocalData } = animeListInfo;
   return (
     <MyAnimeListStyled>
