@@ -34,27 +34,27 @@ export const handlers = [
     }
   }),
 
-  rest.get(`${apiLocalUrl}`, async (req, res, ctx) => {
+  rest.get(`${apiLocalUrl}`, async (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
   }),
 
-  rest.get(`${apiLocalUrl}/dsa`, async (req, res, ctx) => {
+  rest.get(`${apiLocalUrl}/dsa`, async (_req, res, ctx) => {
     return res(ctx.status(404), ctx.json(mockFailureResponse));
   }),
 
-  rest.post(`${apiLocalUrl}`, async (req, res, ctx) => {
+  rest.post(`${apiLocalUrl}`, async (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
   }),
 
-  rest.post(`${apiLocalUrl}/dsa`, async (req, res, ctx) => {
+  rest.post(`${apiLocalUrl}/dsa`, async (_req, res, ctx) => {
     return res(ctx.status(404), ctx.json(mockFailureResponse));
   }),
 
-  rest.delete(`${apiLocalUrl}/1`, async (req, res, ctx) => {
+  rest.delete(`${apiLocalUrl}/1`, async (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
   }),
 
-  rest.delete(`${apiLocalUrl}/7`, async (req, res, ctx) => {
+  rest.delete(`${apiLocalUrl}/7`, async (_req, res, ctx) => {
     return res(ctx.status(404), ctx.json(mockFailureResponse));
   }),
 ];
