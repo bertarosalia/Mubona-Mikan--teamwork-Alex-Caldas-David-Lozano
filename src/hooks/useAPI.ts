@@ -18,15 +18,15 @@ const useAPI = () => {
 
   const jikanAPI = useCallback(
     async (apiURL: string, dispatch: Dispatch<ActionUI> = UIdispatch) => {
-      UIdispatch(showLoadingActionCreator());
+      dispatch(showLoadingActionCreator());
 
       try {
         const response = await fetch(apiURL);
-        if (response.status === 500) {
+        if (!response.ok) {
           throw new Error();
         }
         const animeApiInfo = await response.json();
-        UIdispatch(closeLoadingActionCreator());
+        dispatch(closeLoadingActionCreator());
         dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
       } catch (error) {
         dispatch(showModalActionCreator(false, error as string));
@@ -36,35 +36,62 @@ const useAPI = () => {
   );
 
   const getApiLocal = useCallback(
-    async (localApi: string) => {
+    async (localApi: string, dispatch: Dispatch<ActionUI> = UIdispatch) => {
       try {
-        UIdispatch(showLoadingActionCreator());
+        dispatch(showLoadingActionCreator());
         const response = await fetch(localApi);
+        if (!response.ok) {
+          throw new Error();
+        }
         const localApiAnime = await response.json();
-        UIdispatch(closeLoadingActionCreator());
+        dispatch(closeLoadingActionCreator());
         dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
       } catch (error) {
-        UIdispatch(showModalActionCreator(false, error as string));
+        dispatch(showModalActionCreator(false, error as string));
       }
     },
     [UIdispatch, dispatchAnime]
   );
 
-  const postLocalAPI = (apiURL: string, animeObject: object) => {
-    fetch(apiURL, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(animeObject),
-    });
+  const postLocalAPI = async (
+    apiURL: string,
+    animeObject: object,
+    dispatch: Dispatch<ActionUI> = UIdispatch
+  ) => {
+    try {
+      const response = await fetch(apiURL, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(animeObject),
+      });
+      dispatch(showModalActionCreator(true, "Anime added to your list"));
+      if (!response.ok) {
+        throw new Error();
+      }
+    } catch (error) {
+      dispatch(showModalActionCreator(false, "Something were wrong"));
+    }
   };
 
-  const deleteLocalAPI = (apiURL: string, animeId: number) => {
-    fetch(`${apiURL}/${animeId}`, {
-      method: "DELETE",
-    });
+  const deleteLocalAPI = async (
+    apiURL: string,
+    animeId: number,
+    dispatch: Dispatch<ActionUI> = UIdispatch
+  ) => {
+    try {
+      const response = await fetch(`${apiURL}/${animeId}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error();
+      }
+      dispatch(showModalActionCreator(true, "Anime deleted to your list"));
+    } catch (error) {
+      dispatch(showModalActionCreator(false, "Something were wrong"));
+    }
   };
 
-  return { deleteLocalAPI, postLocalAPI, jikanAPI, animeListInfo, getApiLocal };
+  return { animeListInfo, deleteLocalAPI, postLocalAPI, jikanAPI, getApiLocal };
 };
 
 export default useAPI;
