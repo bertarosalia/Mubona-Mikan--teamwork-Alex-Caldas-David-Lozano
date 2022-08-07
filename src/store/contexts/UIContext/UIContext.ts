@@ -8,9 +8,9 @@ export interface IUIContext {
 
 export const UIContext = createContext<IUIContext>({
   ui: {
-    isFormShowing: false,
     isLoading: false,
     isModalShowing: false,
+    isFormShowing: false,
     message: "",
     type: false,
   },

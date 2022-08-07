@@ -57,6 +57,7 @@ describe("Given a Modal component", () => {
         ui: {
           isLoading: false,
           isModalShowing: false,
+          isFormShowing: false,
           message: "",
           type: false,
         },
