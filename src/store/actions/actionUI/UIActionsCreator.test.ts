@@ -1,4 +1,8 @@
-import { showModalActionCreator } from "./UIActionsCreator";
+import {
+  closeFormActionCreator,
+  showFormActionCreator,
+  showModalActionCreator,
+} from "./UIActionsCreator";
 import { showLoadingActionCreator } from "./UIActionsCreator";
 import { closeModalActionCreator } from "./UIActionsCreator";
 import { closeLoadingActionCreator } from "./UIActionsCreator";
@@ -51,6 +55,30 @@ describe("Given the closeLoadingActionCreator function", () => {
       const closeLoadingAction = closeLoadingActionCreator();
 
       expect(closeLoadingAction).toEqual(expectedAction);
+    });
+  });
+
+  describe("Given the showFormActionCreator function", () => {
+    describe("When it's invoked", () => {
+      test("Then it should return an action with property type with 'showLoading'", () => {
+        const expectedAction = { type: "showForm" };
+
+        const showLoadingAction = showFormActionCreator();
+
+        expect(showLoadingAction).toEqual(expectedAction);
+      });
+    });
+  });
+
+  describe("Given the closeFormActionCreator function", () => {
+    describe("When it's invoked", () => {
+      test("Then it should return an action with property type with 'showLoading'", () => {
+        const expectedAction = { type: "closeForm" };
+
+        const showLoadingAction = closeFormActionCreator();
+
+        expect(showLoadingAction).toEqual(expectedAction);
+      });
     });
   });
 });
