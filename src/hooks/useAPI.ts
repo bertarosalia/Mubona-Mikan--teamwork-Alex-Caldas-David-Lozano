@@ -18,15 +18,14 @@ const useAPI = () => {
 
   const jikanAPI = useCallback(
     async (apiURL: string, dispatch: Dispatch<ActionUI> = UIdispatch) => {
-      dispatch(showLoadingActionCreator());
-
       try {
+        UIdispatch(showLoadingActionCreator());
         const response = await fetch(apiURL);
-        if (!response.ok) {
+        if (response.status === 500) {
           throw new Error();
         }
         const animeApiInfo = await response.json();
-        dispatch(closeLoadingActionCreator());
+        UIdispatch(closeLoadingActionCreator());
         dispatchAnime(loadAnimeListActionCreator(animeApiInfo));
       } catch (error) {
         dispatch(showModalActionCreator(false, error as string));
@@ -38,13 +37,13 @@ const useAPI = () => {
   const getApiLocal = useCallback(
     async (localApi: string, dispatch: Dispatch<ActionUI> = UIdispatch) => {
       try {
-        dispatch(showLoadingActionCreator());
+        UIdispatch(showLoadingActionCreator());
         const response = await fetch(localApi);
         if (!response.ok) {
           throw new Error();
         }
         const localApiAnime = await response.json();
-        dispatch(closeLoadingActionCreator());
+        UIdispatch(closeLoadingActionCreator());
         dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
       } catch (error) {
         dispatch(showModalActionCreator(false, error as string));
@@ -64,10 +63,12 @@ const useAPI = () => {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(animeObject),
       });
-      dispatch(showModalActionCreator(true, "Anime added to your list"));
       if (!response.ok) {
         throw new Error();
       }
+      const localApiAnime = await response.json();
+      dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
+      dispatch(showModalActionCreator(true, "Anime added to your list"));
     } catch (error) {
       dispatch(showModalActionCreator(false, "Something were wrong"));
     }
@@ -85,7 +86,9 @@ const useAPI = () => {
       if (!response.ok) {
         throw new Error();
       }
-      dispatch(showModalActionCreator(true, "Anime deleted to your list"));
+      const localApiAnime = await response.json();
+      UIdispatch(showModalActionCreator(true, "Anime deleted to your list"));
+      dispatchAnime(loadLocalAnimeListActionCreator(localApiAnime));
     } catch (error) {
       dispatch(showModalActionCreator(false, "Something were wrong"));
     }

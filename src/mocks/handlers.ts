@@ -1,21 +1,28 @@
 import { rest } from "msw";
 
 const apiUrl = process.env.REACT_APP_API_URL;
+const apiLocalUrl = process.env.REACT_APP_LOCAL_API_URL;
 
-const mockResponse = {
-  pruebaguay: "Bien!",
+const mockJikanResponse = {
+  testSuccess: "Great",
 };
 
 const mockFailureResponse = {
   pruebaerror: "ERROR",
 };
 
+const mockLocalSuccessResponse = [
+  {
+    testSuccess: "Great",
+  },
+];
+
 export const handlers = [
   rest.get(`${apiUrl}`, async (req, res, ctx) => {
     const queryParamPage = req.url.searchParams.get("page");
 
     if (queryParamPage === "0") {
-      return res(ctx.status(200), ctx.json(mockResponse));
+      return res(ctx.status(200), ctx.json(mockJikanResponse));
     }
   }),
 
@@ -25,5 +32,29 @@ export const handlers = [
     if (queryParamPage === "asadasda") {
       return res(ctx.status(500), ctx.json(mockFailureResponse));
     }
+  }),
+
+  rest.get(`${apiLocalUrl}`, async (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
+  }),
+
+  rest.get(`${apiLocalUrl}/dsa`, async (_req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(mockFailureResponse));
+  }),
+
+  rest.post(`${apiLocalUrl}`, async (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
+  }),
+
+  rest.post(`${apiLocalUrl}/dsa`, async (_req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(mockFailureResponse));
+  }),
+
+  rest.delete(`${apiLocalUrl}/1`, async (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockLocalSuccessResponse));
+  }),
+
+  rest.delete(`${apiLocalUrl}/7`, async (_req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(mockFailureResponse));
   }),
 ];
