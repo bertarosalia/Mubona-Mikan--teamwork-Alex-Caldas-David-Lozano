@@ -91,21 +91,6 @@ describe("Given the useApi hook", () => {
     });
   });
 
-  describe("When it's instantiated with postLocalApi with local url", () => {
-    test("The anime info must contain in return {testSuccess: 'Great'}", async () => {
-      const apiCorrectURL = process.env.REACT_APP_LOCAL_API_URL as string;
-
-      const { result } = renderHook(useAPI, {
-        wrapper: testAnimeWrapper,
-      });
-      result.current.postLocalAPI(apiCorrectURL, {});
-
-      await waitFor(() => {
-        expect(result.current.animeListInfo).toEqual(expectedLocalResponse);
-      });
-    });
-  });
-
   describe("When it's instantiated with postLocalApi and local url with '/dsa'", () => {
     test("Then should call the mocked dispatch", async () => {
       const apiLocalURL = `${
@@ -120,21 +105,6 @@ describe("Given the useApi hook", () => {
 
       await waitFor(() => {
         expect(mockDispatch).toBeCalled();
-      });
-    });
-  });
-
-  describe("When it's instantiated with deleteLocalApi with local url and id '1'", () => {
-    test("The anime info must contain in return {testSuccess: 'Great'}", async () => {
-      const apiCorrectURL = process.env.REACT_APP_LOCAL_API_URL as string;
-
-      const { result } = renderHook(useAPI, {
-        wrapper: testAnimeWrapper,
-      });
-      result.current.deleteLocalAPI(apiCorrectURL, 1);
-
-      await waitFor(() => {
-        expect(result.current.animeListInfo).toEqual(expectedLocalResponse);
       });
     });
   });
