@@ -7,7 +7,7 @@ const Header = (): JSX.Element => {
         <img
           className="header__image"
           alt="Mubona Mikan title"
-          height="24"
+          height="25"
           width="218"
           src="./images/Mubona.svg"
         ></img>
